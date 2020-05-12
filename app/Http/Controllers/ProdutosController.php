@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Categoria;
 use App\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProdutosController extends Controller
 {
@@ -16,6 +17,8 @@ class ProdutosController extends Controller
         $mensagem = $request
                     ->session()
                     ->get('mensagem');
+
+        $produtos = Produto::paginate(4);
 
         return view('produtos.index', compact('produtos', 'mensagem'));
     }
@@ -78,6 +81,12 @@ class ProdutosController extends Controller
         return redirect()->route('listar_produtos');
     }
     
+    public static function pesquisar(Request $request, Produto $nome)
+    {
+       $produtos = Produto::pesquisar($request->nome);
+        
+        return view('produtos.index', ['produtos' => $produtos, 'nome' => $nome]);
+    }
     public function destroy(Request $request)
     {
         Produto::destroy($request->id);

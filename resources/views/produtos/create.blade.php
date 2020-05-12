@@ -35,8 +35,10 @@ Adicionar Produtos
             <input type="number" name="preco" class="form-control" id="preco">
             </div>
         </div>
-        <button class="btn btn-primary mt-2 float-right">Adicionar</button>
-        <a href="JavaScript: window.history.back();" class="btn btn-primary mt-2 float-right mr-2">Voltar</a>
+        <div style="margin-right:35%;">
+            <button class="btn btn-primary mt-5 float-right">Adicionar</button>
+            <a href="JavaScript: window.history.back();" class="btn btn-primary mt-5 float-right mr-2">Voltar</a>
+        </div>
     </form>
 
 @endsection

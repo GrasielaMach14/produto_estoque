@@ -50,6 +50,8 @@ Route::get('/registrar', 'RegistroController@create');
 
 Route::post('/registrar', 'RegistroController@store');
 
+Route::any('/pesquisar','ProdutosController@pesquisar');
+
 Route::get('/sair', function (){
     \Illuminate\Support\Facades\Auth::logout();
     return redirect('/entrar');

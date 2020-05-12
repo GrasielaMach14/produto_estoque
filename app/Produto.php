@@ -19,4 +19,9 @@ class Produto extends Model
     {
         return $this->attributes['preco'] = sprintf('R$ %s', number_format($preco, 2, ',', '.'));
     }
+
+    public static function pesquisar($nome)
+    {
+        return static::where('nome', 'LIKE', '%'. $nome .'%')->get();
+    }
 }

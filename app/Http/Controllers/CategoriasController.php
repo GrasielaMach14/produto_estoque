@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Categoria;
-use App\Http\Requests\CategoriasFormRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoriasFormRequest;
 
 class CategoriasController extends Controller
 {
@@ -16,6 +16,8 @@ class CategoriasController extends Controller
         $mensagem = $request
                     ->session()
                     ->get('mensagem');
+                    
+        $categorias = Categoria::paginate(3);
 
         return view('categorias.index', compact('categorias', 'mensagem'));
     }
@@ -28,6 +30,8 @@ class CategoriasController extends Controller
     public function store(CategoriasFormRequest $request)
     {
         $categoria = Categoria::create($request->all());
+        $categoria = Categoria::paginate(3);
+
         $request->session()
                 ->flash(
                     'mensagem', 

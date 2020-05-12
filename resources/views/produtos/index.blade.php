@@ -5,6 +5,19 @@ Produtos
 @endsection
 
 @section('conteudo')
+
+<div class="col-md-12 mb-4" style="float:left;margin-top:-20px;">
+    <form action="/pesquisar" method="get">
+        <div class="input-group">
+            <input type="search" name="pesquisar" class="form-control" placeholder="Pesquisar por nome">
+            <span class="input-group-prepend">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search fa-xs"></i>
+                </button>
+            </span>
+        </div>
+    </form>
+</div>
 @if(!empty($mensagem))
     <div class="alert alert-sucess">
         {{ $mensagem }}
@@ -54,5 +67,7 @@ Produtos
         </tr>
         @endforeach
     </table>
-    
+    <div style="float:right;">
+        {!! $produtos->links() !!}
+    </div>    
 @endsection

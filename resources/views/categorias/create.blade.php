@@ -21,9 +21,10 @@ Adicionar Categorias
                 <label for="nome">Nome:</label>
                 <input type="text" class="form-control" name="nome">
             </div>
+            <div style="margin-right:66%;"></div>
+            <a href="JavaScript: window.history.back();" class="btn btn-primary mt-5 float-right mr-2">Voltar</a>
+            <button class="btn btn-primary mt-5 float-right">Adicionar</button>
         </div>
-        <button class="btn btn-primary mt-2 float-right">Adicionar</button>
-        <a href="JavaScript: window.history.back();" class="btn btn-primary mt-2 float-right mr-2">Voltar</a>
     </form>
 
 @endsection
