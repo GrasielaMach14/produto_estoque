@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Produto extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['categoria_id', 'nome', 'descricao', 'preco'];
+    protected $fillable = ['categoria_id', 'nome', 'modelo', 'descricao', 'preco'];
     
     public function categoria()
     {

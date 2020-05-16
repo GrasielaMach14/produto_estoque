@@ -30,7 +30,6 @@ class CategoriasController extends Controller
     public function store(CategoriasFormRequest $request)
     {
         $categoria = Categoria::create($request->all());
-        $categoria = Categoria::paginate(3);
 
         $request->session()
                 ->flash(

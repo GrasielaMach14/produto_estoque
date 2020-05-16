@@ -31,6 +31,7 @@ Produtos
             <tr>
                 <th>Id</th>
                 <th>Nome</th>
+                <th>Modelo</th>
                 <th>Descrição</th>
                 <th>Tipo</th>
                 <th>Preço</th>
@@ -41,6 +42,7 @@ Produtos
         <tr>
             <td>{{ $produto->id }}</td>
             <td>{{ $produto->nome }}</td>
+            <td>{{ $produto->modelo }}</td>
             <td>{{ $produto->descricao }}</td>
             <td>{{ $produto->categoria->nome }}</td>
             <td>R$ {{ number_format($produto->preco, 2, ',', '.') }}</td>

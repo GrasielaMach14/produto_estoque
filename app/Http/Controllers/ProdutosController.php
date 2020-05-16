@@ -37,12 +37,8 @@ class ProdutosController extends Controller
 
     public function store(Request $request)
     {
-        $produtos = Produto::create([
-                'nome' => request('nome'), 
-                'descricao' => request('descricao'), 
-                'preco' => request('preco'),
-                'categoria_id' => request('categoria_id')
-            ]);
+        $produtos = array_filter($request->all());
+        $produtos = Produto::create($produtos);
 
         $request->session()
             ->flash(

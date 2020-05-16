@@ -21,7 +21,8 @@
             <li><a href="/produtos">Produtos</a></li>
             <li><a href="/categorias">Categoria</a></li>
             <li><a href="#">Estoque</a></li>
-            <li><a href="#">Usuário</a></li>
+            <li><a href="/setores">Setor</a></li>
+            <li><a href="/funcionarios">Usuário</a></li>
             <li><a href="/entrar">Login</a></li>
             <li><a href="/registrar">Registrar-se</a></li>
             <li><a href="#">Contato <span>+</span></a></li>    
@@ -59,11 +60,21 @@
         @endguest
     </nav>
     <div class="jumbotron">
-        <h1 style="color:white;text-align:center;position:relative;text-shadow:black 0.1em 0.1em 0.2em;font-size:64px;">Estoque de Produtos</h1>
+        <h1 class="fachada">Estoque de Produtos</h1>
     </div>
     <div class="container" id="main">
         <div class="row mt-5">
-            <div class="col-sm">
+            <div class="col-sm-4">
+                <div class="card border border-light rounded" style="width:18rem;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);background-color:#6A989F;color:white;">
+                    <a href="/setores">
+                        <img class="img-thumbnail" src="/img/listasetor.png" alt="Imagem de capa do card">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text">Listagem de setores da empresa.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
                 <div class="card border border-light rounded" style="width:18rem;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);background-color:#6A989F;color:white;">
                     <a href="/produtos">
                         <img class="img-thumbnail" src="/img/listaprodutos.png" alt="Imagem de capa do card">
@@ -73,7 +84,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm">
+            <div class="col-sm-4">
                 <div class="card border border-light rounded" style="width:18rem;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);background-color:#6A989F;color:white;">
                     <a href="/categorias">
                         <img class="img-thumbnail" src="/img/listacategoria.png" alt="Imagem de capa do card">
@@ -83,7 +94,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm">
+            <div class="col-sm-4">
                 <div class="card border border-light rounded" style="width:18rem;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);background-color:#6A989F;color:white;">
                     <a href="/produtos">
                         <img class="img-thumbnail" src="/img/listaprodutos.png" alt="Imagem de capa do card">

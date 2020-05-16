@@ -22,6 +22,8 @@ Adicionar Produtos
                 <input type="text" class="form-control" name="nome">
                 <label for="descricao">Descrição:</label>
                 <input type="text" class="form-control" name="descricao">
+                <label for="modelo">Modelo:</label>
+                <input type="text" class="form-control" name="modelo">
             </div>
             <div class="col col-2">
             <label for="categoria_id">Categoria:</label>

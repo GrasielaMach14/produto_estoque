@@ -23,6 +23,8 @@ Atualizar Produto
                 <input type="text" class="form-control" name="nome" value="{{ $produtos->nome }}">
                 <label for="descricao">Descrição:</label>
                 <input type="text" class="form-control" name="descricao" value="{{ $produtos->descricao }}"> 
+                <label for="modelo">Modelo:</label>
+                <input type="text" class="form-control" name="modelo" value="{{ $produtos->modelo }}"> 
             </div>
             <div class="col col-2">
             <label for="categoria_id">Categoria:</label>
