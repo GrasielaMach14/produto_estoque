@@ -1,9 +1,5 @@
 @extends('layout')
 
-@section('cabecalho')
-    Entrar
-@endsection
-
 @section('conteudo')
 @if ($errors->any())
     <div class="alert alert-danger">

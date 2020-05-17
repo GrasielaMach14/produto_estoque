@@ -14,7 +14,7 @@ Atualizar Funcionário
             </ul>
         </div>
     @endif
-    <form action="{{ route('funcionarios.update', $funcionarios->id, $funcionarios->categoria_id) }}" method="post">
+    <form action="{{ route('funcionarios.update', $funcionarios->id, $funcionarios->setor_id) }}" method="post">
         {{ method_field('PUT') }}
         @csrf
         <div class="row">
@@ -23,7 +23,11 @@ Atualizar Funcionário
                 <select name="sector_id" id="sector_id" class="form-control">
                     <option>Selecione...</option>
                     @foreach($setores as $s)
-                    <option value="{{ $s->id }}">{{ $s->nome }}</option>
+                    <option value="{{ $s->id }}"
+                    @if($s->id === $funcionarios->setor_id)
+                    {{'selected="selected"'}}
+                    @endif    
+                    >{{ $s->nome }}</option>
                     @endforeach
                 </select>
                 <label for="nome">Nome:</label>
@@ -32,11 +36,9 @@ Atualizar Funcionário
                 <input type="text" class="form-control" name="cpf" value="{{ $funcionarios->cpf }}"> 
             </div>
         </div>
-            <div style="margin-right: 35%;">
-                <button class="btn btn-primary mt-5 float-right">Alterar</button>
-                <a href="JavaScript: window.history.back();" class="btn btn-primary mt-5 float-right mr-2">Voltar</a>
-            </div>
-        <div class="col col-2">
+        <div style="margin-right: 35%;">
+            <button class="btn btn-primary mt-5 float-right">Alterar</button>
+            <a href="JavaScript: window.history.back();" class="btn btn-primary mt-5 float-right mr-2">Voltar</a>
         </div>
     </form>
 

@@ -108,11 +108,24 @@ footer{
   left:0;
 }
 .centralizar{
-  padding: 81px;
-  width: 55%;
+  max-width: 500px;
+  margin-left: 43%;
+  position: absolute;  
+  top: 63%;  
+  padding: 68px;
+  transform: translate(-50%, -50%);
+  border: 1px solid #6A6F731A;
+  -webkit-box-shadow: 9px 7px 5px #0000008c;
+  -moz-box-shadow:    9px 7px 5px #0000008c;
+  box-shadow:         9px 7px 5px #0000008c;
+}
+.registro{
+  width: 50%;
+  max-width: 500px;
+  margin-left: 43%;
   position: absolute;
-  left: 50%;
-  top: 82%;
+  top: 78%;
+  padding: 50px;
   transform: translate(-50%, -50%);
   border: 1px solid #6A6F731A;
   -webkit-box-shadow: 9px 7px 5px #0000008c;
@@ -138,11 +151,13 @@ ul li span{
   padding-right: 10px;
 }
 .fachada{
+  background-image: linear-gradient(#4d5c64, #ccc);
+}
+.cards{
+  width:15rem;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+  background-color:rgb(242, 247, 248);
   color:white;
-  text-align:center;
-  position:relative;
-  text-shadow:black 0.1em 0.1em 0.2em;
-  font-size:84px;
 }
 /* The side navigation menu */
 .sidenav {

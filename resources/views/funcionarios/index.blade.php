@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('cabecalho')
-Colaboradores
+Funcionários
 @endsection
 
 @section('conteudo')
@@ -11,7 +11,6 @@ Colaboradores
         <tr>
             <th>Id</th>
             <th>Nome</th>
-            <th>CPF</th>
             <th>Setor</th>
             <th>Ação</th>
         </tr>
@@ -20,7 +19,6 @@ Colaboradores
     <tr>
         <td>{{ $funcionario->id }}</td>
         <td>{{ $funcionario->nome }}</td>
-        <td>{{ $funcionario->cpf }}</td>
         <td>{{ $funcionario->setor->nome }}</td>
         <td>
             <span class="d-flex">

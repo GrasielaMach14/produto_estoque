@@ -7,7 +7,7 @@
 @section('conteudo')
 <form method="post">
     @csrf
-    <div class="centralizar">
+    <div class="registro">
         <div class="form-group">
             <label for="name">Nome</label>
             <input type="text" name="name" id="name" required class="form-control">
