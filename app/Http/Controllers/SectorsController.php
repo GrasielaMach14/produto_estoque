@@ -21,6 +21,13 @@ class SectorsController extends Controller
         return view('setores.index', compact('setores', 'mensagem'));
     }
 
+    public function show($id)
+    {
+        $setores = Sector::find($id);
+
+        return view('setores.show', compact('setores'));
+    }
+
     public function create()
     {
         return view('setores.create');

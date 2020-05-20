@@ -22,6 +22,13 @@ class CategoriasController extends Controller
         return view('categorias.index', compact('categorias', 'mensagem'));
     }
 
+    public function show($id)
+    {
+        $categorias = Categoria::find($id);
+
+        return view('categorias.show', compact('categorias'));
+    }
+
     public function create()
     {
         return view('categorias.create');

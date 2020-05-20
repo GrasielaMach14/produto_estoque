@@ -18,7 +18,9 @@ class CreateProdutosTable extends Migration
             $table->string('nome');
             $table->string('descricao');
             $table->string('modelo')->nullable();
-            $table->decimal('preco', 12, 2);
+            $table->decimal('preco', 8, 2);
+            $table->decimal('valor_final', 8, 2);
+            $table->integer('quantidade');
             $table->integer('categoria_id');
 
             $table->foreign('categoria_id')

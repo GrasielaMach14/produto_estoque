@@ -61,10 +61,9 @@
     </nav>
     <div class="jumbotron fachada">
         <h1 style="font-size:85px;color:#ccc;">Estoque de Produtos</h1>
-        <p class="mt-3">Uma maneira simples de ter o controle do estoque. <br>
-        Registre aqui seus produtos, funcionários e toda a 
-        movimentação da sua empresa.</p>
-
+        <h5 class="mt-5">Uma maneira simples de ter o controle do estoque.</h5>
+        <p>Registre aqui seus produtos, funcionários e toda a 
+            movimentação da sua empresa.</p>
         <button class="btn btn-primary">Veja mais aqui</button> 
     </div>
     <div class="container" id="main">
@@ -101,6 +100,7 @@
             </div>
         </div>
     </div>
+    <footer></footer>
     <script>
         function openNav() {
         document.getElementById("mySidenav").style.width = "250px";

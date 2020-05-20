@@ -18,7 +18,7 @@ Categorias de Produtos
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nome</th>
-                <th scope="col" class="float:right;">Ação</th>
+                <th scope="col">Ação</th>
             </tr>
         </thead>
         <tbody>
@@ -28,8 +28,11 @@ Categorias de Produtos
                 <td>{{ $categoria->nome }}</td>
                 <td>
                     <span class="d-flex">
+                        <a class="btn btn-success btn-sm mr-1" href="/categorias/{{ $categoria->id }}">
+                        <i class="fas fa-search-plus"></i>
+                        </a>
                         @auth
-                        <a href="/categorias/{{ $categoria->id }}" class="btn btn-info btn-sm mr-1">                    
+                        <a href="/categorias/{{ $categoria->id }}/edit" class="btn btn-info btn-sm mr-1">                    
                             @csrf
                             @method('PUT')
                             <i class="fas fa-edit"></i>

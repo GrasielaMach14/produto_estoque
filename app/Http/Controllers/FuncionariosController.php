@@ -14,12 +14,23 @@ class FuncionariosController extends Controller
                             ->orderBy('nome')
                             ->get();
 
+        $mensagem = $request
+                ->session()
+                ->get('mensagem');
+
         $funcionarios = Funcionario::with('setor')
                                     ->get();
 
         $funcionarios = Funcionario::paginate(4);
 
-        return view('funcionarios.index', compact('funcionarios'));
+        return view('funcionarios.index', compact('funcionarios', 'mensagem'));
+    }
+
+    public function show($id)
+    {
+        $funcionarios = Funcionario::find($id);
+
+        return view('funcionarios.show', compact('funcionarios'));
     }
 
     public function create()
@@ -32,6 +43,13 @@ class FuncionariosController extends Controller
     public function store(Request $request)
     {
         $funcionarios = Funcionario::create($request->all());
+
+        $request->session()
+            ->flash(
+                'mensagem', 
+                "Funcionário cadastrado com sucesso."
+            );
+
         //dd($funcionarios);
         return redirect()->route('listar_funcionarios');
     }
@@ -48,11 +66,18 @@ class FuncionariosController extends Controller
     public function update(Request $request, int $id)
     {
         $funcionarios = Funcionario::find($id);
-        $setores = Sector::all();
         $funcionarios = $funcionarios->update([
             'nome' => request('nome'), 
-            'cpf' => request('cpf'), 
+            'cpf' => request('cpf'),
+            'sector_id' => request('sector_id'), 
         ]);
+        
+        $request->session()
+            ->flash(
+                'mensagem', 
+                "Funcionário alterado com sucesso."
+            );
+
 
         return redirect()->route('listar_funcionarios');
     }
@@ -60,6 +85,13 @@ class FuncionariosController extends Controller
     public function destroy(Request $request)
     {
         Funcionario::destroy($request->id);
+
+        $request->session()
+            ->flash(
+                'mensagem', 
+                "Funcionário excluído com sucesso."
+            );
+
 
         return redirect()->route('listar_funcionarios');
     }

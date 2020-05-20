@@ -27,6 +27,13 @@ class ProdutosController extends Controller
     {
         return view('produtos.home');
     }
+
+    public function show($id)
+    {
+        $produtos = Produto::find($id);
+
+        return view('produtos.show', compact('produtos'));
+    }
     
     public function create()
     {
@@ -61,11 +68,11 @@ class ProdutosController extends Controller
     public function update(Request $request, int $id)
     {
         $produtos = Produto::find($id);
-        $categorias = Categoria::all();
         $produtos = $produtos->update([
                 'nome' => request('nome'), 
                 'descricao' => request('descricao'), 
                 'preco' => request('preco'),
+                'categoria_id' => request('categoria_id')
         ]);
 
         $request->session()
@@ -77,11 +84,16 @@ class ProdutosController extends Controller
         return redirect()->route('listar_produtos');
     }
     
-    public static function pesquisar(Request $request, Produto $nome)
+    public static function pesquisar(Request $request, int $id)
     {
-       $produtos = Produto::pesquisar($request->nome);
+        $produtos = Produto::find($id);
+        $produtos = Produto::where('nome',1)
+                    ->orderBy('nome','descricao')
+                    ->take(10)
+                    ->get();        
         
-        return view('produtos.index', ['produtos' => $produtos, 'nome' => $nome]);
+
+        return view('listar_produtos')->with('produtos ' , $produtos );
     }
     public function destroy(Request $request)
     {

@@ -26,20 +26,24 @@ Adicionar Produtos
                 <input type="text" class="form-control" name="modelo">
             </div>
             <div class="col col-2">
-            <label for="categoria_id">Categoria:</label>
-            <select name="categoria_id" id="categoria_id" class="form-control">
-                <option>Selecione...</option>
-                @foreach($categorias as $c)
-                <option value="{{ $c->id }}">{{ $c->nome }}</option>
-                @endforeach
-            </select>
-            <label for="preco">Preço:</label>
-            <input type="number" name="preco" class="form-control" id="preco">
+                <label for="categoria_id">Categoria:</label>
+                <select name="categoria_id" id="categoria_id" class="form-control">
+                    <option>Selecione...</option>
+                    @foreach($categorias as $c)
+                    <option value="{{ $c->id }}">{{ $c->nome }}</option>
+                    @endforeach
+                </select>
+                <label for="preco">Preço:</label>
+                <input type="number" name="preco" class="form-control" id="preco">
+                <label for="valor_final">Preço Final:</label>
+                <input type="number" name="valor_final" class="form-control" id="valor_final">
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" name="quantidade" class="form-control" id="quantidade">
             </div>
-        </div>
-        <div style="margin-right:35%;">
-            <button class="btn btn-primary mt-5 float-right">Adicionar</button>
-            <a href="JavaScript: window.history.back();" class="btn btn-primary mt-5 float-right mr-2">Voltar</a>
+            <div style="margin-right:35%;">
+                <button class="btn btn-primary mt-5 float-right">Adicionar</button>
+                <a href="JavaScript: window.history.back();" class="btn btn-primary mt-5 float-right mr-2">Voltar</a>
+            </div>
         </div>
     </form>
 

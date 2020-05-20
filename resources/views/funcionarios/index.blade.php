@@ -5,7 +5,9 @@ Funcionários
 @endsection
 
 @section('conteudo')
+@auth
 <a href="funcionarios/criar" class="btn btn-info mb-2 float-right">Incluir</a>
+@endauth
 <table class="table table-striped table-hover">
     <thead class="thead-dark">
         <tr>
@@ -22,8 +24,11 @@ Funcionários
         <td>{{ $funcionario->setor->nome }}</td>
         <td>
             <span class="d-flex">
+                <a class="btn btn-success btn-sm mr-1" href="/funcionarios/{{ $funcionario->id }}">
+                    <i class="fas fa-search-plus"></i>
+                </a>
                 @auth
-                <a href="/funcionarios/{{ $funcionario->id }}" class="btn btn-info btn-sm mr-1">                    
+                <a href="/funcionarios/{{ $funcionario->id }}/edit" class="btn btn-info btn-sm mr-1">                    
                     @csrf
                     @method('PUT')
                     <i class="fas fa-edit"></i>

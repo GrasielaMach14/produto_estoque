@@ -27,15 +27,20 @@ Atualizar Produto
                 <input type="text" class="form-control" name="modelo" value="{{ $produtos->modelo }}"> 
             </div>
             <div class="col col-2">
-            <label for="categoria_id">Categoria:</label>
-            <select name="categoria_id" id="categoria_id" class="form-control" value="{{ $produtos->categoria_id }}">
-                <option>Selecione...</option>
-                @foreach($categorias as $c)
-                <option value="{{ $c->id }}">{{ $c->nome }}</option>
-                @endforeach
-            </select>
-            <label for="preco">Preço:</label>
-            <input type="number" name="preco" class="form-control" id="preco" value="{{ $produtos->preco }}">
+                <label for="categoria_id">Categoria:</label>
+                <select name="categoria_id" id="categoria_id" class="form-control">
+                    <option value="{{ $produtos->categoria->id ?? '' }}">{{ $produtos->categoria->nome ?? 'Categoria'}}
+                        @foreach($categorias as $c)
+                        <option value="{{ $c->id }}">{{ $c->nome }}</option>
+                        @endforeach                    
+                    </option>
+                </select>
+                <label for="preco">Preço:</label>
+                <input type="number" name="preco" class="form-control" id="preco" value="{{ $produtos->preco }}">
+                <label for="valor_final">Preço Final:</label>
+                <input type="number" name="valor_final" class="form-control" id="valor_final" value="{{ $produtos->valor_final }}">
+                <label for="quantidade">Preço Final:</label>
+                <input type="number" name="quantidade" class="form-control" id="quantidade" value="{{ $produtos->quantidade }}">
             </div>
         </div>
         <div style="margin-right: 35%;">

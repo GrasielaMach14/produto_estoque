@@ -10,8 +10,9 @@ Setor
         {{ $mensagem }}
     </div>
 @endif
-
+@auth
 <a href="setores/criar" class="btn btn-info mb-2 float-right">Incluir</a>
+@endauth
 <table class="table table-striped table-hover">
     <thead class="thead-dark">
         <tr>
@@ -26,8 +27,11 @@ Setor
         <td>{{ $setor->nome }}</td>
         <td>
             <span class="d-flex">
+                    <a class="btn btn-success btn-sm mr-1" href="/setores/{{ $setor->id }}">
+                        <i class="fas fa-search-plus"></i>
+                    </a>
                     @auth
-                    <a href="/setores/{{ $setor->id }}" class="btn btn-info btn-sm mr-1">                    
+                    <a href="/setores/{{ $setor->id }}/edit" class="btn btn-info btn-sm mr-1">                    
                         @csrf
                         @method('PUT')
                         <i class="fas fa-edit"></i>

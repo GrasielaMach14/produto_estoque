@@ -21,13 +21,9 @@ Atualizar Funcionário
             <div class="col col-6">
                 <label for="sector_id">Setor:</label>
                 <select name="sector_id" id="sector_id" class="form-control">
-                    <option>Selecione...</option>
+                <option value="{{ $funcionarios->setor->id ?? '' }}">{{ $funcionarios->setor->nome ?? 'Setor'}}
                     @foreach($setores as $s)
-                    <option value="{{ $s->id }}"
-                    @if($s->id === $funcionarios->setor_id)
-                    {{'selected="selected"'}}
-                    @endif    
-                    >{{ $s->nome }}</option>
+                    <option value="{{ $s->id }}">{{ $s->nome }}</option>
                     @endforeach
                 </select>
                 <label for="nome">Nome:</label>

@@ -48,8 +48,11 @@ Produtos
             <td>R$ {{ number_format($produto->preco, 2, ',', '.') }}</td>
             <td>
                 <span class="d-flex">
+                    <a class="btn btn-success btn-sm mr-1" href="/produtos/{{ $produto->id }}">
+                        <i class="fas fa-search-plus"></i>
+                    </a>
                     @auth
-                    <a href="/produtos/{{ $produto->id }}" class="btn btn-info btn-sm mr-1">                    
+                    <a href="/produtos/{{ $produto->id }}/edit" class="btn btn-info btn-sm mr-1">                    
                         @csrf
                         @method('PUT')
                         <i class="fas fa-edit"></i>
