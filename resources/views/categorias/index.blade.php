@@ -4,6 +4,17 @@
 Categorias de Produtos
 @endsection
 
+@section('sidebar')
+<ul>
+    <li></li>
+    <li><a href="#"> </a></li>
+    <li> <a href="/produtos">Produtos</a></li>
+    <li><a href="/produtos/home">Estoque</a></li>
+    <li><a href="/setores">Setor</a></li>
+    <li><a href="/funcionarios">Funcionário</a></li>
+</ul>
+@endsection
+
 @section('conteudo')
 @if(!empty($mensagem))
     <div class="alert alert-sucess">

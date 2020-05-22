@@ -20,12 +20,16 @@
         <a href="/entrar" style="color:white;">Entrar</a>
         @endguest
     </nav>
-    <div class="jumbotron">
-        <h1 style="font-size:60px;">@yield('cabecalho')</h1>    
+    <div class="jumbotron fachada-yield">
+        <h1 style="font-size:80px;">@yield('cabecalho')</h1>    
     </div>
-    <div class="container">
+    <div id="sidebar"> @yield('sidebar')</div>
+    <div class="container base">
        @yield('conteudo')
     </div>
+    
+    <br><br><br><br><br><br><br><br>
+    
     <footer></footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -4,6 +4,18 @@
 Funcionários
 @endsection
 
+@section('sidebar')
+<ul>
+    <li></li>
+    <li><a href="#"> </a></li>
+    <li> <a href="/produtos">Produtos</a></li>
+    <li><a href="/categorias">Categoria</a></li>
+    <li><a href="/produtos/home">Estoque</a></li>
+    <li><a href="/setores">Setor</a></li>
+</ul>
+@endsection
+
+
 @section('conteudo')
 @auth
 <a href="funcionarios/criar" class="btn btn-info mb-2 float-right">Incluir</a>

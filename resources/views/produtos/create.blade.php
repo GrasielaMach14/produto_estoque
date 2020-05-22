@@ -27,7 +27,7 @@ Adicionar Produtos
             </div>
             <div class="col col-2">
                 <label for="categoria_id">Categoria:</label>
-                <select name="categoria_id" id="categoria_id" class="form-control">
+                <select name="categoria_id" id="categoria_id" class="form-control custom-select"> 
                     <option>Selecione...</option>
                     @foreach($categorias as $c)
                     <option value="{{ $c->id }}">{{ $c->nome }}</option>
