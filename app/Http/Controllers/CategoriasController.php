@@ -62,7 +62,7 @@ class CategoriasController extends Controller
         $request->session()
             ->flash(
                 'mensagem', 
-                "Produto alterado com sucesso."
+                "Categoria alterada com sucesso."
             );
             
         return redirect()->route('listar_categorias');

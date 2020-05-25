@@ -21,7 +21,7 @@ class FuncionariosController extends Controller
         $funcionarios = Funcionario::with('setor')
                                     ->get();
 
-        $funcionarios = Funcionario::paginate(4);
+        $funcionarios = Funcionario::paginate(3);
 
         return view('funcionarios.index', compact('funcionarios', 'mensagem'));
     }

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('cabecalho')
-Atualizar Produto
+Atualizar Categoria
 @endsection
 
 @section('conteudo')

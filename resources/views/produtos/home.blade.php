@@ -23,9 +23,10 @@
             <li><a href="/produtos/home">Home</a></li>
             <li><a href="/produtos">Produtos</a></li>
             <li><a href="/categorias">Categoria</a></li>
-            <li><a href="#">Estoque</a></li>
+            <li><a href="#">Estoque <span>+</span></a></li>
             <li><a href="/setores">Setor</a></li>
             <li><a href="/funcionarios">Funcionários</a></li>
+            <li><a href="#">Fornecedores</a></li>
             <li><a href="/entrar">Login</a></li>
             <li><a href="/registrar">Registrar-se</a></li>
             <li><a href="#">Contato <span>+</span></a></li>    

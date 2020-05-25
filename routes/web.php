@@ -50,7 +50,8 @@ Route::put('/funcionarios/update/{id}', [ 'as' => 'funcionarios.update', 'uses' 
 'FuncionariosController@update']);
 
 Route::get('/produtos/{id}/edit', 'ProdutosController@edit')
-                                    ->middleware('autenticador');
+                                    ->middleware('autenticador')
+                                    ->name('editar_produto');
 
 Route::get('/categorias/{id}/edit', 'CategoriasController@edit')
                                         ->middleware('autenticador');
@@ -63,7 +64,8 @@ Route::delete('/categorias/remover/{id}', 'CategoriasController@destroy')
                                                     ->middleware('autenticador');
 
 Route::delete('produtos/remover/{id}', 'ProdutosController@destroy')
-                                                ->middleware('autenticador');
+                                                ->middleware('autenticador')
+                                                ->name('deletar_produto');
 
 Route::delete('/setores/remover/{id}', 'SectorsController@destroy');
 
@@ -71,7 +73,8 @@ Route::delete('/funcionarios/remover/{id}', 'FuncionariosController@destroy');
 
 Route::get('/categorias/{id}', 'CategoriasController@show');
 
-Route::get('/produtos/{id}', 'ProdutosController@show');
+Route::get('/produtos/{id}', 'ProdutosController@show')
+                            ->name('visualizar_produto');
 
 Route::get('/setores/{id}', 'SectorsController@show');
 

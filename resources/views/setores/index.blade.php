@@ -21,6 +21,18 @@ Setor
         {{ $mensagem }}
     </div>
 @endif
+
+    <div class="wrapper" >
+        <div class="search-box">
+            <input type="text" class="input" id="myInput" onkeyup="searchFunc()" placeholder="Filtrar buscas por nome...">
+            <div class="searchbtn">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br>
+
 @auth
 <a href="setores/criar" class="btn btn-info mb-2 float-right">Incluir</a>
 @endauth
@@ -33,33 +45,35 @@ Setor
         </tr>
     </thead>
     @foreach($setores as $setor)
-    <tr>
-        <td>{{ $setor->id }}</td>
-        <td>{{ $setor->nome }}</td>
-        <td>
-            <span class="d-flex">
-                    <a class="btn btn-success btn-sm mr-1" href="/setores/{{ $setor->id }}">
-                        <i class="fas fa-search-plus"></i>
-                    </a>
-                    @auth
-                    <a href="/setores/{{ $setor->id }}/edit" class="btn btn-info btn-sm mr-1">                    
-                        @csrf
-                        @method('PUT')
-                        <i class="fas fa-edit"></i>
-                    </a>
-                    @endauth
-                    @auth
-                    <form method="post" action="/setores/remover/{{ $setor->id}}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes( $setor->nome )}}?')">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger btn-sm">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </form>
-                    @endauth
-            </span>
-        </td>
-    </tr>
+    <tbody id="myTable">
+        <tr>
+            <td>{{ $setor->id }}</td>
+            <td>{{ $setor->nome }}</td>
+            <td>
+                <span class="d-flex">
+                        <a class="btn btn-success btn-sm mr-1" href="/setores/{{ $setor->id }}">
+                            <i class="fas fa-search-plus"></i>
+                        </a>
+                        @auth
+                        <a href="/setores/{{ $setor->id }}/edit" class="btn btn-info btn-sm mr-1">                    
+                            @csrf
+                            @method('PUT')
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        @endauth
+                        @auth
+                        <form method="post" action="/setores/remover/{{ $setor->id}}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes( $setor->nome )}}?')">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger btn-sm">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </form>
+                        @endauth
+                </span>
+            </td>
+        </tr>
+    </tbody>
     @endforeach
 </table>
 <div style="float:right;">

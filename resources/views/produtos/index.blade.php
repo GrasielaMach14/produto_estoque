@@ -12,6 +12,7 @@ Produtos
     <li><a href="/produtos/home">Estoque</a></li>
     <li><a href="/setores">Setor</a></li>
     <li><a href="/funcionarios">Funcionário</a></li>
+    <li><a href="#">Fornecedores</a></li>
 </ul>
 @endsection
 
@@ -21,16 +22,26 @@ Produtos
     
 </div>
 @if(!empty($mensagem))
-    <div class="alert alert-sucess">
+    <div class="alert alert-sucess mt-4">
         {{ $mensagem }}
     </div>
 @endif
-    <input type="text" id="txtBuscar" placeholder="Search for names.." title="Type in a name">
+    <div class="wrapper" >
+        <div class="search-box">
+            <input type="text" class="input" id="myInput" onkeyup="searchFunc()" placeholder="Filtrar buscas por nome...">
+            <div class="searchbtn">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
     @auth
     <a href="produtos/criar" class="btn btn-info mb-2 float-right">Incluir</a>
     @endauth
-    <table class="table table-striped table-hover" id="myTable">
-        <thead class="thead-dark">
+    <table class="table table-hover">
+        <thead class="thead-light">
             <tr class="header">
                 <th>Id</th>
                 <th>Nome</th>
@@ -42,7 +53,7 @@ Produtos
             </tr>
         </thead>
         @foreach($produtos as $produto) 
-        <tbody id="tbody">
+        <tbody id="myTable">
             <tr>
                 <td>{{ $produto->id }}</td>
                 <td>{{ $produto->nome }}</td>
@@ -77,41 +88,10 @@ Produtos
             @endforeach        
         </tbody>           
     </table>
+
+
     <div style="float:right;">
         {!! $produtos->links() !!}
     </div> 
 
-    <!--<script>
-            var tbody = document.getElementById("tbody");
-            var tr = tbody.childNodes;
-            
-            document.getElementById("txtBuscar").addEventListener("keyup", function(){
-                var busca = document.getElementById("txtBuscar").value.toLowerCase();
-                
-                for (var i = 0; i < tbody.childNodes.length; i++)
-                {
-                    var find = false;
-                    var tr = tbody.childNodes[i];
-                    
-                    var td = tr.childNodes;
-
-                    for (var j = 0; j = td.length; j++)
-                    {
-                        var value = td[j].childNodes[0].nodeValue.toLowerCase();
-
-                        if(value.indexOf(busca) >= 0)
-                        {
-                            find = true;
-                        }
-                    }
-
-                    if(find)
-                    {
-                       // tr.style.display = "table-row";
-                    }else{
-                        tr.style.display = "none";
-                    }
-                }
-            });
-    </script> -->
 @endsection

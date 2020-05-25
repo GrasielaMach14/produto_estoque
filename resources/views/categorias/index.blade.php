@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('cabecalho')
-Categorias de Produtos
+Categorias 
 @endsection
 
 @section('sidebar')
@@ -21,6 +21,18 @@ Categorias de Produtos
         {{ $mensagem }}
     </div>
 @endif
+
+    <div class="wrapper" >
+        <div class="search-box">
+            <input type="text" class="input" id="myInput" onkeyup="searchFunc()" placeholder="Filtrar buscas por nome...">
+            <div class="searchbtn">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br>
+
     @auth
     <a href="categorias/criar" class="btn btn-info mb-2 float-right">Incluir</a>
     @endauth
@@ -32,8 +44,8 @@ Categorias de Produtos
                 <th scope="col">Ação</th>
             </tr>
         </thead>
-        <tbody>
-            @foreach($categorias as $categoria)            
+        @foreach($categorias as $categoria)            
+        <tbody id="myTable">
             <tr>
                 <td>{{ $categoria->id }}</td>
                 <td>{{ $categoria->nome }}</td>
@@ -64,6 +76,7 @@ Categorias de Produtos
             @endforeach        
         </tbody>
     </table>
+    
     <div style="float:right;">
         {!! $categorias->links() !!}
     </div>    
