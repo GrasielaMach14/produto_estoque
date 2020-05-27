@@ -12,12 +12,14 @@ Route::get('/setores', 'SectorsController@index')
 Route::get('/funcionarios', 'FuncionariosController@index')
                         ->name('listar_funcionarios');
 
+Route::get('/fornecedores', 'FornecedorController@index')
+                            ->name('listar_fornecedores');
+
 Route::get('/produtos/home', 'ProdutosController@home');
 
 Route::get('/categorias/criar', 'CategoriasController@create')
                                 ->name('form_criar_categorias')
                                 ->middleware('autenticador');
-
                                 
 Route::get('/produtos/criar', 'ProdutosController@create')
                             ->name('form_criar_produtos')
@@ -26,6 +28,10 @@ Route::get('/produtos/criar', 'ProdutosController@create')
 Route::get('/setores/criar', 'SectorsController@create');
 
 Route::get('/funcionarios/criar', 'FuncionariosController@create');
+
+Route::get('/fornecedores/criar', 'FornecedorController@create')
+                                ->name('form_criar_fornecedores')
+                                ->middleware('autenticador');
 
 Route::post('/categorias/criar', 'CategoriasController@store')
                                 ->middleware('autenticador');
@@ -37,7 +43,10 @@ Route::post('/setores/criar', 'SectorsController@store');
 
 Route::post('/funcionarios/criar', 'FuncionariosController@store');
 
-Route::put('/produtos/update/{id}', [ 'as' => 'produtos.update', 'uses' =>'ProdutosController@update'])
+Route::post('/fornecedores/criar', 'FornecedorController@store')
+                                ->middleware('autenticador');
+
+Route::put('/produtos/update/{id}', [ 'as' => 'produtos.update', 'uses'                 =>'ProdutosController@update'])
 ->middleware('autenticador');
 
 Route::put('/categorias/update/{id}', [ 'as' => 'categorias.update', 'uses' =>'CategoriasController@update'])
@@ -48,6 +57,9 @@ Route::put('/setores/update/{id}', [ 'as' => 'setores.update', 'uses' =>
 
 Route::put('/funcionarios/update/{id}', [ 'as' => 'funcionarios.update', 'uses' =>
 'FuncionariosController@update']);
+
+Route::put('/fornecedores/update/{id}', [ 'as' => 'fornecedores.update', 'uses' =>'FornecedorController@update'])
+->middleware('autenticador');
 
 Route::get('/produtos/{id}/edit', 'ProdutosController@edit')
                                     ->middleware('autenticador')
@@ -60,6 +72,10 @@ Route::get('/setores/{id}/edit', 'SectorsController@edit');
 
 Route::get('/funcionarios/{id}/edit', 'FuncionariosController@edit');
 
+Route::get('/fornecedores/{id}/edit', 'FornecedorController@edit')
+                                    ->middleware('autenticador')
+                                    ->name('editar_fornecedores');
+
 Route::delete('/categorias/remover/{id}', 'CategoriasController@destroy')
                                                     ->middleware('autenticador');
 
@@ -71,6 +87,10 @@ Route::delete('/setores/remover/{id}', 'SectorsController@destroy');
 
 Route::delete('/funcionarios/remover/{id}', 'FuncionariosController@destroy');
 
+Route::delete('fornecedores/remover/{id}', 'FornecedorController@destroy')
+                                                ->middleware('autenticador')
+                                                ->name('deletar_fornecedores');
+
 Route::get('/categorias/{id}', 'CategoriasController@show');
 
 Route::get('/produtos/{id}', 'ProdutosController@show')
@@ -79,6 +99,9 @@ Route::get('/produtos/{id}', 'ProdutosController@show')
 Route::get('/setores/{id}', 'SectorsController@show');
 
 Route::get('/funcionarios/{id}', 'FuncionariosController@show');
+
+Route::get('/fornecedores/{id}', 'FornecedorController@show')
+                            ->name('visualizar_fornecedores');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

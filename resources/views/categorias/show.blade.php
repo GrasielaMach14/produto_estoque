@@ -7,6 +7,7 @@ Categorias de Produtos
 @section('conteudo')
 <div class="float-left">
     <h1>Visualizar</h1> <hr>
+    <h4>ID: {{ $categorias->id }}</h4> 
     <h3>Categoria: {{ $categorias->nome }}</h3> 
 </div>
 

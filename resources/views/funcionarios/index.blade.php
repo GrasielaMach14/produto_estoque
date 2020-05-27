@@ -12,12 +12,13 @@ Funcionários
     <li><a href="/categorias">Categoria</a></li>
     <li><a href="/produtos/home">Estoque</a></li>
     <li><a href="/setores">Setor</a></li>
+    <li><a href="/fornecedores">Fornecedores</a></li>
 </ul>
 @endsection
 
 @section('conteudo')
 @if(!empty($mensagem))
-    <div class="alert alert-sucess">
+    <div class="alert alert-sucess mt-3">
         {{ $mensagem }}
     </div>
 @endif
@@ -31,13 +32,13 @@ Funcionários
         </div>
     </div>
 
-    <br><br><br>
+    <br><br>
 
 @auth
 <a href="funcionarios/criar" class="btn btn-info mb-2 float-right">Incluir</a>
 @endauth
-<table class="table table-striped table-hover">
-    <thead class="thead-dark">
+<table class="table table-hover">
+    <thead class="thead-light">
         <tr>
             <th>Id</th>
             <th>Nome</th>

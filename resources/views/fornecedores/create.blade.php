@@ -1,7 +1,15 @@
 @extends('layout')
 
 @section('cabecalho')
-Atualizar Categoria
+Adicionar Produtos
+@endsection
+
+@section('sidebar')
+<ul>
+    <li></li>
+    <li><a href="#">    </a></li>
+    <li><a href="/fornecedores">Tela principal</a></li>
+</ul>
 @endsection
 
 @section('conteudo')
@@ -14,15 +22,19 @@ Atualizar Categoria
             </ul>
         </div>
     @endif
-    <form action="{{ route('categorias.update', $categorias->id) }}" method="post">
-        {{ method_field('PUT') }}
-        @csrf
+    <form method="post">
+    @csrf
         <div class="form-group">
             <label for="nome">Nome:</label>
-            <input type="text" class="form-control" name="nome" value="{{ $categorias->nome }}">
+            <input type="text" class="form-control" name="nome">
         </div>
-        <button class="btn btn-primary mt-5 float-right" style="width:130px;">Alterar</button>
+        <div class="form-group">
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" class="form-control" name="cnpj">
+        </div>
+        <button class="btn btn-primary mt-5 float-right" style="width:130px;">Adicionar</button>
         <a href="JavaScript: window.history.back();" class="btn btn-primary mt-5 float-right mr-2" style="width:130px;">Voltar</a>
+        <br><br><br><br><br><br>
     </form>
 
 @endsection

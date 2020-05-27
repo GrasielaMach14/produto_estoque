@@ -243,6 +243,27 @@ ul li span{
   background-color:rgb(242, 247, 248);
   color:white;
 }
+.caret a span {
+  cursor: pointer;
+  user-select: none; /* Prevent text selection */
+}
+.caret::before {
+  display: inline-block;
+  margin-right: 6px;
+}
+.caret-down::before {
+  transform: rotate(90deg);
+}
+.nested {
+  display: none;
+  background-color:rgba(61, 40, 40, 0.774);
+}
+.nested a:hover {
+  background-color: #a6adb179;
+}
+.active {
+  display: block;
+}
 /* The side navigation menu */
 .sidenav {
   height: 100%; /* 100% Full-height */

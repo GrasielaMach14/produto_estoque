@@ -12,17 +12,13 @@ Produtos
     <li><a href="/produtos/home">Estoque</a></li>
     <li><a href="/setores">Setor</a></li>
     <li><a href="/funcionarios">Funcionário</a></li>
-    <li><a href="#">Fornecedores</a></li>
+    <li><a href="/fornecedores">Fornecedores</a></li>
 </ul>
 @endsection
 
 @section('conteudo')
-
-<div class="col-md-12 mb-4" style="float:left;margin-top:-20px;">
-    
-</div>
 @if(!empty($mensagem))
-    <div class="alert alert-sucess mt-4">
+    <div class="alert alert-sucess mt-3">
         {{ $mensagem }}
     </div>
 @endif

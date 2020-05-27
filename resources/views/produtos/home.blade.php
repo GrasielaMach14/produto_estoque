@@ -19,17 +19,28 @@
       
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <ul>
+            <ul id="myUL">
             <li><a href="/produtos/home">Home</a></li>
             <li><a href="/produtos">Produtos</a></li>
             <li><a href="/categorias">Categoria</a></li>
-            <li><a href="#">Estoque <span>+</span></a></li>
+            <li><a href="#" class="caret">Estoque<span>+</span></a>
+                <ul class="nested">
+                    <li><a href="#">Movimentação</a></li>
+                    <li><a href="#">Entrada de produtos</a></li>
+                    <li><a href="#">Saída de produtos</a></li>
+                </ul>
+            </li>
             <li><a href="/setores">Setor</a></li>
             <li><a href="/funcionarios">Funcionários</a></li>
-            <li><a href="#">Fornecedores</a></li>
+            <li><a href="/fornecedores">Fornecedores</a></li>
             <li><a href="/entrar">Login</a></li>
             <li><a href="/registrar">Registrar-se</a></li>
-            <li><a href="#">Contato <span>+</span></a></li>    
+            <li><a href="#" class="caret">Contato<span>+</span></a>
+                <ul class="nested">
+                    <li><a href="#">@Email</a></li>
+                    <li><a href="#">Telefone</a></li>
+                </ul>
+            </li>
             <li><a href="/sair">Sair</a></li>
             </ul>
         </div>
@@ -65,8 +76,8 @@
     </nav>
     <div class="jumbotron fachada">
         <h1 style="font-size:85px;color:#ccc;">Controle de Estoque</h1>
-        <h5 class="mt-5 text-dark">Uma maneira simples de ter o controle do estoque.</h5>
-        <p class="text-dark">Registre aqui seus produtos, funcionários e toda a 
+        <h5 class="mt-5 text-dark">Uma maneira simples de ter o controlar o estoque da sua empresa.</h5>
+        <p class="text-dark">Registre aqui seus produtos, funcionários e organize toda a 
             movimentação da sua empresa.</p>
         <button class="btn btn-primary">Veja mais aqui</button> 
     </div>
@@ -193,7 +204,9 @@
         <p>Aliquam nonummy auctor massa</p>
     </footer>
     <script>
-  
+        var toggler = document.getElementsByClassName("caret");
+        var i;
+        //Carrousel
         $('#carouselExampleIndicators').on('slide.bs.carousel', function () {
             interval: 2000
         });
@@ -206,6 +219,14 @@
         function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
         }
+        
+        //Abrir submenu do menu lateral
+        for (i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function() {
+                this.parentElement.querySelector(".nested").classList.toggle("active");
+                this.classList.toggle("caret-down");
+            });
+        } 
     </script>
  
 </body>

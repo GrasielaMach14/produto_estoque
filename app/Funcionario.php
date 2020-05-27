@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Funcionario extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['nome', 'cpf', 'sector_id'];
+    protected $fillable = ['nome', 'cpf', 'sector_id', 'matricula'];
 
     public function setor()
     {

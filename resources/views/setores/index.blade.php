@@ -12,32 +12,33 @@ Setor
     <li><a href="/categorias">Categoria</a></li>
     <li><a href="/produtos/home">Estoque</a></li>
     <li><a href="/funcionarios">Funcionário</a></li>
+    <li><a href="/fornecedores">Fornecedores</a></li>
 </ul>
 @endsection
 
 @section('conteudo')
 @if(!empty($mensagem))
-    <div class="alert alert-sucess">
+    <div class="alert alert-sucess mt-3">
         {{ $mensagem }}
     </div>
 @endif
 
-    <div class="wrapper" >
-        <div class="search-box">
-            <input type="text" class="input" id="myInput" onkeyup="searchFunc()" placeholder="Filtrar buscas por nome...">
-            <div class="searchbtn">
-                <i class="fas fa-search"></i>
-            </div>
+<div class="wrapper mb-2 " >
+    <div class="search-box">
+        <input type="text" class="input" id="myInput" onkeyup="searchFunc()" placeholder="Filtrar buscas por nome...">
+        <div class="searchbtn">
+            <i class="fas fa-search"></i>
         </div>
     </div>
+</div>
 
-    <br><br><br>
+<br><br>
 
 @auth
 <a href="setores/criar" class="btn btn-info mb-2 float-right">Incluir</a>
 @endauth
-<table class="table table-striped table-hover">
-    <thead class="thead-dark">
+<table class="table table-hover">
+    <thead class="thead-light">
         <tr>
             <th>Id</th>
             <th>Nome</th>

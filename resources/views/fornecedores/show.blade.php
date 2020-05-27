@@ -1,13 +1,13 @@
 @extends('layout')
 
 @section('cabecalho')
-Setor
+Fornecedores
 @endsection
 
 @section('conteudo')
 <div class="float-left">
-    <h3>Id: {{ $setores->id}}</h3>
-    <h1>{{ $setores->nome }}</h1> <hr>    
+    <h1>Nome: {{ $fornecedores->nome }}</h1> <hr>
+    <h3>CNPJ: {{ $fornecedores->cnpj }}</h3> 
 </div>
 
 @endsection

@@ -1,18 +1,18 @@
 @extends('layout')
 
 @section('cabecalho')
-Categorias 
+Fornecedores
 @endsection
 
 @section('sidebar')
 <ul>
     <li></li>
     <li><a href="#"> </a></li>
+    <li> <a href="/categorias">Categorias</a></li>
     <li> <a href="/produtos">Produtos</a></li>
     <li><a href="/produtos/home">Estoque</a></li>
     <li><a href="/setores">Setor</a></li>
     <li><a href="/funcionarios">Funcionário</a></li>
-    <li><a href="/fornecedores">Fornecedores</a></li>
 </ul>
 @endsection
 
@@ -31,38 +31,41 @@ Categorias
             </div>
         </div>
     </div>
+
     <br><br>
 
     @auth
-    <a href="categorias/criar" class="btn btn-info mb-2 float-right">Incluir</a>
+    <a href="fornecedores/criar" class="btn btn-info mb-2 float-right">Incluir</a>
     @endauth
     <table class="table table-hover">
         <thead class="thead-light">
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nome</th>
+                <th scope="col">CNPJ</th>
                 <th scope="col">Ação</th>
             </tr>
         </thead>
-        @foreach($categorias as $categoria)            
+        @foreach($fornecedores as $fornecedor)            
         <tbody id="myTable">
             <tr>
-                <td>{{ $categoria->id }}</td>
-                <td>{{ $categoria->nome }}</td>
+                <td>{{ $fornecedor->id }}</td>
+                <td>{{ $fornecedor->nome }}</td>
+                <td>{{ $fornecedor->cnpj }}</td>
                 <td>
                     <span class="d-flex">
-                        <a class="btn btn-success btn-sm mr-1" href="/categorias/{{ $categoria->id }}">
+                        <a class="btn btn-success btn-sm mr-1" href="/fornecedores/{{ $fornecedor->id }}">
                         <i class="fas fa-search-plus"></i>
                         </a>
                         @auth
-                        <a href="/categorias/{{ $categoria->id }}/edit" class="btn btn-info btn-sm mr-1">                    
+                        <a href="/fornecedores/{{ $fornecedor->id }}/edit" class="btn btn-info btn-sm mr-1">                    
                             @csrf
                             @method('PUT')
                             <i class="fas fa-edit"></i>
                         </a>
                         @endauth
                         @auth
-                        <form method="post" action="/categorias/remover/{{ $categoria->id}}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes( $categoria->nome )}}?')">
+                        <form method="post" action="/fornecedores/remover/{{ $fornecedor->id}}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes( $fornecedor->nome )}}?')">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm">
@@ -78,6 +81,6 @@ Categorias
     </table>
     
     <div style="float:right;">
-        {!! $categorias->links() !!}
+        {!! $fornecedores->links() !!}
     </div>    
 @endsection
