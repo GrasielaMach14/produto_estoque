@@ -16,14 +16,15 @@ class CreateFuncionariosTable extends Migration
         Schema::create('funcionarios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
-            $table->integer('matricula');
-            $table->char('cpf', 9);
-            $table->integer('sector_id');
+            $table->string('matricula')->unique();
+            $table->string('cpf')->unique();
+            $table->unsignedBigInteger('setor_id');
+            
+            //$table->foreign('setor_id')->references('id')->constrained('setores');
+            $table->foreign('setor_id')->references('id')->on('setores')->onDelete('cascade');
+
             $table->timestamps();
 
-            $table->foreign('sector_id')
-                    ->references('id')
-                    ->on('sectors');
         });
     }
 

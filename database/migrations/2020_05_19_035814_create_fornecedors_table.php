@@ -17,6 +17,7 @@ class CreateFornecedorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->char('cnpj', 15);
+           
             $table->timestamps();
         });
     }

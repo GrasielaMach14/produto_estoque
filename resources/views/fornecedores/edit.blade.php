@@ -31,7 +31,7 @@ Atualizar Fornecedor
         </div>
         <div class="form-group">
             <label for="cnpj">Cnpj</label>
-            <input type="text" class="form-control" name="cnpj" id="cnpj" value="{{ $fornecedores->cnpj }}">
+            <input type="text" class="form-control" name="cnpj" id="cnpj" value="{{ $fornecedores->cnpj }}" placeholder="00.000.000/0000-00" onkeypress="$(this).mask('00.000.000/0000-00')">
         </div>
         <br><br>
         <button class="btn btn-primary float-right" style="width:130px;">Alterar</button>

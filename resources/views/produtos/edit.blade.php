@@ -48,19 +48,9 @@ Atualizar Produto
                     </option>
                 </select>                
             </div>
-        </div>
-        <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="preco">Preço</label>
-                <input type="number" name="preco" class="form-control" id="preco" value="{{ $produtos->preco }}">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="valor_final">Preço final</label>
-                <input type="number" name="valor_final" class="form-control" id="valor_final" value="{{ $produtos->valor_final }}">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="quantidade">Quantidade:</label>
-                <input type="number" name="quantidade" class="form-control" id="quantidade" value="{{ $produtos->quantidade }}">
+                <input type="number" name="preco" class="form-control" id="preco" step="0.01" min="0.01" value="{{ $produtos->preco }}">
             </div>
         </div>
         <br><br>

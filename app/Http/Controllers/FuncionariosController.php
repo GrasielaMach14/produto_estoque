@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Sector;
+use App\Setor;
 use App\Funcionario;
 use Illuminate\Http\Request;
 
@@ -35,7 +35,7 @@ class FuncionariosController extends Controller
 
     public function create()
     {
-        $setores = Sector::all();
+        $setores = Setor::all();
 
         return view('funcionarios.create', compact('setores'));
     }
@@ -57,7 +57,7 @@ class FuncionariosController extends Controller
     public function edit(int $id)
     {
         $funcionarios = Funcionario::find($id);
-        $setores = Sector::all();
+        $setores = Setor::all();
 
         return view('funcionarios.edit', compact('funcionarios', 'setores'));
 
@@ -69,7 +69,7 @@ class FuncionariosController extends Controller
         $funcionarios = $funcionarios->update([
             'nome' => request('nome'), 
             'cpf' => request('cpf'),
-            'sector_id' => request('sector_id'), 
+            'setor_id' => request('setor_id'), 
         ]);
         
         $request->session()

@@ -6,7 +6,7 @@ Route::get('/categorias', 'CategoriasController@index')
 Route::get('/produtos', 'ProdutosController@index')
                         ->name('listar_produtos');
 
-Route::get('/setores', 'SectorsController@index')
+Route::get('/setores', 'SetoresController@index')
                         ->name('listar_setores');
 
 Route::get('/funcionarios', 'FuncionariosController@index')
@@ -14,6 +14,9 @@ Route::get('/funcionarios', 'FuncionariosController@index')
 
 Route::get('/fornecedores', 'FornecedorController@index')
                             ->name('listar_fornecedores');
+
+Route::get('/estoques', 'EstoquesController@index')
+                            ->name('listar_estoques');
 
 Route::get('/produtos/home', 'ProdutosController@home');
 
@@ -25,12 +28,16 @@ Route::get('/produtos/criar', 'ProdutosController@create')
                             ->name('form_criar_produtos')
                             ->middleware('autenticador');
                                 
-Route::get('/setores/criar', 'SectorsController@create');
+Route::get('/setores/criar', 'SetoresController@create');
 
 Route::get('/funcionarios/criar', 'FuncionariosController@create');
 
 Route::get('/fornecedores/criar', 'FornecedorController@create')
                                 ->name('form_criar_fornecedores')
+                                ->middleware('autenticador');
+
+Route::get('/estoques/criar', 'EstoquesController@create')
+                                ->name('form_criar_estoque')
                                 ->middleware('autenticador');
 
 Route::post('/categorias/criar', 'CategoriasController@store')
@@ -39,11 +46,14 @@ Route::post('/categorias/criar', 'CategoriasController@store')
 Route::post('/produtos/criar', 'ProdutosController@store')
                             ->middleware('autenticador');
 
-Route::post('/setores/criar', 'SectorsController@store');
+Route::post('/setores/criar', 'SetoresController@store');
 
 Route::post('/funcionarios/criar', 'FuncionariosController@store');
 
 Route::post('/fornecedores/criar', 'FornecedorController@store')
+                                ->middleware('autenticador');
+
+Route::post('/estoques/criar', 'EstoquesController@store')
                                 ->middleware('autenticador');
 
 Route::put('/produtos/update/{id}', [ 'as' => 'produtos.update', 'uses'                 =>'ProdutosController@update'])
@@ -53,12 +63,15 @@ Route::put('/categorias/update/{id}', [ 'as' => 'categorias.update', 'uses' =>'C
 ->middleware('autenticador');
 
 Route::put('/setores/update/{id}', [ 'as' => 'setores.update', 'uses' =>
-'SectorsController@update']);
+'SetoresController@update']);
 
 Route::put('/funcionarios/update/{id}', [ 'as' => 'funcionarios.update', 'uses' =>
 'FuncionariosController@update']);
 
 Route::put('/fornecedores/update/{id}', [ 'as' => 'fornecedores.update', 'uses' =>'FornecedorController@update'])
+->middleware('autenticador');
+
+Route::put('/estoques/update/{id}', [ 'as' => 'estoques.update', 'uses' =>'EstoquesController@update'])
 ->middleware('autenticador');
 
 Route::get('/produtos/{id}/edit', 'ProdutosController@edit')
@@ -68,13 +81,17 @@ Route::get('/produtos/{id}/edit', 'ProdutosController@edit')
 Route::get('/categorias/{id}/edit', 'CategoriasController@edit')
                                         ->middleware('autenticador');
 
-Route::get('/setores/{id}/edit', 'SectorsController@edit');
+Route::get('/setores/{id}/edit', 'SetoresController@edit');
 
 Route::get('/funcionarios/{id}/edit', 'FuncionariosController@edit');
 
 Route::get('/fornecedores/{id}/edit', 'FornecedorController@edit')
                                     ->middleware('autenticador')
                                     ->name('editar_fornecedores');
+
+Route::get('/estoques/{id}/edit', 'EstoquesController@edit')
+                                    ->middleware('autenticador')
+                                    ->name('editar_estoque');
 
 Route::delete('/categorias/remover/{id}', 'CategoriasController@destroy')
                                                     ->middleware('autenticador');
@@ -83,7 +100,7 @@ Route::delete('produtos/remover/{id}', 'ProdutosController@destroy')
                                                 ->middleware('autenticador')
                                                 ->name('deletar_produto');
 
-Route::delete('/setores/remover/{id}', 'SectorsController@destroy');
+Route::delete('/setores/remover/{id}', 'SetoresController@destroy');
 
 Route::delete('/funcionarios/remover/{id}', 'FuncionariosController@destroy');
 
@@ -91,17 +108,23 @@ Route::delete('fornecedores/remover/{id}', 'FornecedorController@destroy')
                                                 ->middleware('autenticador')
                                                 ->name('deletar_fornecedores');
 
+Route::delete('/estoques/remover/{id}', 'EstoquesController@destroy')
+                                                ->middleware('autenticador');
+
 Route::get('/categorias/{id}', 'CategoriasController@show');
 
 Route::get('/produtos/{id}', 'ProdutosController@show')
                             ->name('visualizar_produto');
 
-Route::get('/setores/{id}', 'SectorsController@show');
+Route::get('/setores/{id}', 'SetoresController@show');
 
 Route::get('/funcionarios/{id}', 'FuncionariosController@show');
 
 Route::get('/fornecedores/{id}', 'FornecedorController@show')
                             ->name('visualizar_fornecedores');
+
+Route::get('/estoques/{id}', 'EstoquesController@show')
+                            ->name('visualizar_estoque');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -46,24 +46,14 @@ Adicionar Produtos
                     @endforeach
                 </select>
             </div>
-        </div>
-        <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="preco">Preço:</label>
-                <input type="number" name="preco" class="form-control" id="preco">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="valor_final">Preço Final:</label>
-                <input type="number" name="valor_final" class="form-control" id="valor_final"> 
-            </div>
-            <div class="form-group col-md-4">
-                <label for="quantidade">Quantidade:</label>
-                <input type="number" name="quantidade" class="form-control" id="quantidade">
-            </div>
+                <input type="number" name="preco" class="form-control" id="preco" step="0.01" min="0.01">
+            </div>            
         </div>
-            <button class="btn btn-primary mt-5 float-right" style="width:130px;">Adicionar</button>
-            <a href="JavaScript: window.history.back();" class="btn btn-primary mt-5 float-right mr-2" style="width:130px;">Voltar</a>
-            <br><br><br><br><br><br>
+        <button class="btn btn-primary mt-5 float-right" style="width:130px;">Adicionar</button>
+        <a href="JavaScript: window.history.back();" class="btn btn-primary mt-5 float-right mr-2" style="width:130px;">Voltar</a>
+        <br><br><br><br><br><br>
     </form>
 
 @endsection

@@ -245,7 +245,11 @@ ul li span{
 }
 .caret a span {
   cursor: pointer;
+  color: #818181;
   user-select: none; /* Prevent text selection */
+}
+.caret a:hover {
+  background-color: #a6adb179;
 }
 .caret::before {
   display: inline-block;

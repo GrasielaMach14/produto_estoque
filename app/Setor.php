@@ -2,16 +2,16 @@
 
 namespace App;
 
-use App\Funcionario;
 use Illuminate\Database\Eloquent\Model;
 
-class Sector extends Model
+class Setor extends Model
 {
+    protected $table = 'setores';
     public $timestamps = false;
     protected $fillable = ['nome'];
 
     public function funcionarios()
     {
-        $this->hasMany(Funcionario::class);
+        return $this->hasMany(Funcionario::class);
     }
 }

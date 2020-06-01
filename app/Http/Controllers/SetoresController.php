@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Setor;
 use Illuminate\Http\Request;
 
-class SectorsController extends Controller
+class SetoresController extends Controller
 {
     public function index(Request $request)
     {
         $setores = Setor::query()
                 ->orderBy('nome')
                 ->get();
+
         $mensagem = $request
                 ->session()
                 ->get('mensagem');
@@ -63,7 +64,7 @@ class SectorsController extends Controller
         return redirect()->route('listar_setores');
 
     }
-
+   
     public function destroy(Request $request)
     {
         Setor::destroy($request->id);
@@ -74,4 +75,5 @@ class SectorsController extends Controller
         
         return redirect()->route('listar_setores');
     }
+
 }

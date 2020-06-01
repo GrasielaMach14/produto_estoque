@@ -23,9 +23,9 @@
             <li><a href="/produtos/home">Home</a></li>
             <li><a href="/produtos">Produtos</a></li>
             <li><a href="/categorias">Categoria</a></li>
-            <li><a href="#" class="caret">Estoque<span>+</span></a>
+            <li><a class="caret" style="color:#818181;">Estoque<span>+</span></a>
                 <ul class="nested">
-                    <li><a href="#">Movimentação</a></li>
+                    <li><a href="/estoques">Movimentação</a></li>
                     <li><a href="#">Entrada de produtos</a></li>
                     <li><a href="#">Saída de produtos</a></li>
                 </ul>
@@ -35,7 +35,7 @@
             <li><a href="/fornecedores">Fornecedores</a></li>
             <li><a href="/entrar">Login</a></li>
             <li><a href="/registrar">Registrar-se</a></li>
-            <li><a href="#" class="caret">Contato<span>+</span></a>
+            <li><a class="caret" style="color:#818181;">Contato<span>+</span></a>
                 <ul class="nested">
                     <li><a href="#">@Email</a></li>
                     <li><a href="#">Telefone</a></li>
@@ -75,11 +75,11 @@
         @endguest
     </nav>
     <div class="jumbotron fachada">
-        <h1 style="font-size:85px;color:#ccc;">Controle de Estoque</h1>
-        <h5 class="mt-5 text-dark">Uma maneira simples de ter o controlar o estoque da sua empresa.</h5>
+        <h1 style="font-size:85px;color:#ccc;">Gestão de Estoque</h1>
+        <h5 class="mt-5 text-dark">Uma maneira simples de controlar o estoque da sua empresa.</h5>
         <p class="text-dark">Registre aqui seus produtos, funcionários e organize toda a 
             movimentação da sua empresa.</p>
-        <button class="btn btn-primary">Veja mais aqui</button> 
+        <a class="btn btn-primary" href="/estoques">Veja mais aqui</a> 
     </div>
     <div class="container" id="main">
         <section style="margin-bottom:70px;">
@@ -87,13 +87,13 @@
                 <div class="col-md-6">
                     <div class="card flex-md-row mb-4 box-shadow h-md-250">
                         <div class="card-body d-flex flex-column align-items-start" style="width: 280px;">
-                        <strong class="d-inline-block mb-2 text-primary">World</strong>
+                        <strong class="d-inline-block mb-2 text-primary">Controle</strong>
                         <h3 class="mb-0">
-                            <a class="text-dark" href="#">Featured post</a>
+                            <a class="text-dark" href="#">Gerencie seu estoque</a>
                         </h3>
                         <div class="mb-1 text-muted">Nov 12</div>
-                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#">Continue reading</a>
+                        <p class="card-text mb-auto">Guarde todas as informações dos ativos, registre cada movimentação, envie relatórios.</p>
+                        <a href="#">Continue lendo...</a>
                         </div>  
                         <img class="card-img-right flex-auto d-none d-md-block" style="width: 200px; height: 250px;" src="../img/archive-1850170__340.webp">
                     </div>   
@@ -101,13 +101,13 @@
                 <div class="col-md-6">
                     <div class="card flex-md-row mb-4 box-shadow h-md-250">
                         <div class="card-body d-flex flex-column align-items-start" style="width: 280px;">
-                        <strong class="d-inline-block mb-2 text-primary">World</strong>
+                        <strong class="d-inline-block mb-2 text-primary">Gestão</strong>
                         <h3 class="mb-0">
-                            <a class="text-dark" href="#">Featured post</a>
+                            <a class="text-dark" href="#">Gerencie pessoas</a>
                         </h3>
                         <div class="mb-1 text-muted">Nov 12</div>
-                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#">Continue reading</a>
+                        <p class="card-text mb-auto">Registre dados dos colaboradores da empresa e fornecedores disponíveis.</p>
+                        <a href="#">Continue lendo...</a>
                         </div>  
                         <img class="card-img-right flex-auto d-none d-md-block" style="width: 200px; height: 250px;" src="../img/pessoas.jpg">
                     </div>   
@@ -116,8 +116,19 @@
         </section>
         <hr>
         <section style="margin-bottom:70px;">
-            <h3 style="color:#3E403A;">Navegue nas abas disponíveis</h3>
+            <h3 style="color:#3E403A;">Organize seus ativos</h3>
+            <h6>Saiba mais como utilizar clicando no ícone abaixo</h6>
             <div class="row mt-5">
+                <div class="col-sm">
+                    <div class="card border border-light rounded cards">
+                        <a href="/setores">
+                            <img class="img-thumbnail" src="/img/listasetor.png" alt="Imagem de capa do card">
+                        </a>
+                        <div class="card-body">
+                            <a href="/setores" class="btn btn-dark">Veja mais</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-sm">
                     <div class="card border border-light rounded cards">
                         <a href="/setores">
