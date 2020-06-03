@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('cabecalho')
-Adicionar Produtos
+Adicionar Fornecedor
 @endsection
 
 @section('sidebar')
@@ -22,19 +22,24 @@ Adicionar Produtos
             </ul>
         </div>
     @endif
-    <form method="post">
-    @csrf
-        <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input type="text" class="form-control" name="nome">
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+            @csrf
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" class="form-control" name="nome">
+                </div>
+                <div class="form-group">
+                    <label for="cnpj">CNPJ:</label>
+                    <input type="text" class="form-control" name="cnpj" placeholder="00.000.000/0000-00" onkeypress="$(this).mask('00.000.000/0000-00')">
+                </div>
+                <button class="btn btn-primary mt-5 float-right" style="width:130px;">Adicionar</button>
+                <a href="JavaScript: window.history.back();" class="btn btn-primary mt-5 float-right mr-2" style="width:130px;">Voltar</a>
+                <br><br><br><br><br><br>
+            </form>          
         </div>
-        <div class="form-group">
-            <label for="cnpj">CNPJ:</label>
-            <input type="text" class="form-control" name="cnpj" placeholder="00.000.000/0000-00" onkeypress="$(this).mask('00.000.000/0000-00')">
-        </div>
-        <button class="btn btn-primary mt-5 float-right" style="width:130px;">Adicionar</button>
-        <a href="JavaScript: window.history.back();" class="btn btn-primary mt-5 float-right mr-2" style="width:130px;">Voltar</a>
-        <br><br><br><br><br><br>
-    </form>
+    </div>
 
 @endsection

@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
     <link rel="stylesheet" href="/css/menu.css">
 </head>
-<body>
+<body style="background-color:#0c0d0f26;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
         <a class="navbar navbar-expand-lg" href="/produtos/home" style="color:white;">Home</a>
         @auth
@@ -22,7 +22,9 @@
         @endguest
     </nav>
     <div class="jumbotron fachada-yield">
-        <h1 style="font-size:80px;">@yield('cabecalho')</h1>    
+        <div class="jumbotron div-center" style="background-color:#0c0d0f96;width:63%;">
+            <h1 style="font-size:80px;">@yield('cabecalho')</h1>    
+        </div>
     </div>
     <div id="sidebar"> @yield('sidebar')</div>
     <div class="container base">

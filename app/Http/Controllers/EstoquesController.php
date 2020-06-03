@@ -49,8 +49,7 @@ class EstoquesController extends Controller
                     ->flash(
                     'mensagem', 'Movimentação do estoque criado com sucesso.'
                 );
-        
-        dd($estoques);
+                
         return redirect()->route('listar_estoques');
     }
 
@@ -87,7 +86,7 @@ class EstoquesController extends Controller
 
     public function destroy(Request $request)
     {
-        Estoque::destroy($request->$id);
+        Estoque::destroy($request->id);
 
         $request->session()
                     ->flash(

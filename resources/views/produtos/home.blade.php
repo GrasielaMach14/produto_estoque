@@ -75,11 +75,13 @@
         @endguest
     </nav>
     <div class="jumbotron fachada">
-        <h1 style="font-size:85px;color:#ccc;">Gestão de Estoque</h1>
-        <h5 class="mt-5 text-dark">Uma maneira simples de controlar o estoque da sua empresa.</h5>
-        <p class="text-dark">Registre aqui seus produtos, funcionários e organize toda a 
-            movimentação da sua empresa.</p>
-        <a class="btn btn-primary" href="/estoques">Veja mais aqui</a> 
+        <div class="jumbotron" style="background-color:#0c0d0f96;">
+            <h1 style="font-size:85px;" class="text-light">Gestão de Estoque</h1>
+            <h4 class="mt-5 text-light">Uma maneira simples de controlar o estoque da sua empresa.</h4>
+            <h5 class="text-light">Registre aqui seus produtos, funcionários e organize toda a 
+                movimentação da sua empresa.</h5>
+            <a class="btn btn-primary" href="/estoques">Veja mais aqui</a> 
+        </div>
     </div>
     <div class="container" id="main">
         <section style="margin-bottom:70px;">
