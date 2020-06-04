@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('cabecalho')
-Adicionar Movimentação
+Registrar Movimentação
 @endsection
 
 @section('sidebar')
@@ -27,7 +27,7 @@ Adicionar Movimentação
         <div class="card-body">
             <form method="post">
             @csrf
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="tipo_movimentacao">Tipo de movimentação:</label>
                     <br>
                     <div class="form-check form-check-inline">
@@ -42,8 +42,8 @@ Adicionar Movimentação
                             Saída
                         </label>
                     </div>
-                </div>
-                <div class="form-row mt-4">
+                </div>-->
+                <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="produto_id">Produto:</label>
                         <select name="produto_id" id="produto_id" class="form-control custom-select"> 
@@ -54,36 +54,24 @@ Adicionar Movimentação
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="fornecedor_id">Fornecedor:</label>
-                        <select name="fornecedor_id" id="fornecedor_id" class="form-control custom-select"> 
+                        <label for="entrada_id">Movimentação entrada do produto:</label>
+                        <select name="entrada_id" id="entrada_id" class="form-control custom-select"> 
                             <option>Selecione...</option>
-                            @foreach($fornecedores as $f)
-                            <option value="{{ $f->id }}">{{ $f->nome }}</option>
+                            @foreach($entradas as $entra)
+                            <option value="{{ $entra->id }}">{{ $entra->nome }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="funcionario_id">Feito por:</label>
-                        <select name="funcionario_id" id="funcionario_id" class="form-control custom-select"> 
-                            <option>Selecione...</option>
-                            @foreach($funcionarios as $func)
-                            <option value="{{ $func->id }}">{{ $func->nome }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="quantidade">Quantidade:</label>
-                        <input type="number" name="quantidade" class="form-control" id="quantidade">
-                    </div>            
+                <div class="form-group col-md-6">
+                    <label for="saida_id">Movimentação saída de produto:</label>
+                    <select name="saida_id" id="saida_id" class="form-control custom-select"> 
+                        <option>Selecione...</option>
+                        @foreach($saidas as $sai)
+                        <option value="{{ $sai->id }}">{{ $sai->nome }}</option>
+                        @endforeach
+                    </select>
                 </div>
-                    <div class="col-md-4">
-                        <label for="valor_total">Valor total:</label>
-                        <input type="number" name="valor_total" id="valor_total" step="0.01" min="0.01">
-                    </div>
-                <div class="form-group">
-                </div>            
                 <button class="btn btn-primary mt-3 float-right" style="width:130px;">Adicionar</button>
                 <a href="JavaScript: window.history.back();" class="btn btn-primary mt-3 float-right mr-2" style="width:130px;">Voltar</a>
                 <br><br><br>

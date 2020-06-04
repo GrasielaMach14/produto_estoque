@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/categorias', 'CategoriasController@index')
                             ->name('listar_categorias');
 
@@ -17,6 +20,12 @@ Route::get('/fornecedores', 'FornecedorController@index')
 
 Route::get('/estoques', 'EstoquesController@index')
                             ->name('listar_estoques');
+
+Route::get('/entradas', 'EntradasController@index')
+                            ->name('listar_entradas');
+
+Route::get('/saidas', 'SaidasController@index')
+                            ->name('listar_saidas');
 
 Route::get('/produtos/home', 'ProdutosController@home');
 
@@ -40,6 +49,14 @@ Route::get('/estoques/criar', 'EstoquesController@create')
                                 ->name('form_criar_estoque')
                                 ->middleware('autenticador');
 
+Route::get('/entradas/criar', 'EntradasController@create')
+                                ->name('form_criar_entradas')
+                                ->middleware('autenticador');
+
+Route::get('/saidas/criar', 'SaidasController@create')
+                                ->name('form_criar_saidas')
+                                ->middleware('autenticador');
+
 Route::post('/categorias/criar', 'CategoriasController@store')
                                 ->middleware('autenticador');
 
@@ -54,6 +71,12 @@ Route::post('/fornecedores/criar', 'FornecedorController@store')
                                 ->middleware('autenticador');
 
 Route::post('/estoques/criar', 'EstoquesController@store')
+                                ->middleware('autenticador');
+
+Route::post('/entradas/criar', 'EntradasController@store')
+                                ->middleware('autenticador');
+
+Route::post('/saidas/criar', 'SaidasController@store')
                                 ->middleware('autenticador');
 
 Route::put('/produtos/update/{id}', [ 'as' => 'produtos.update', 'uses'                 =>'ProdutosController@update'])
@@ -72,6 +95,12 @@ Route::put('/fornecedores/update/{id}', [ 'as' => 'fornecedores.update', 'uses' 
 ->middleware('autenticador');
 
 Route::put('/estoques/update/{id}', [ 'as' => 'estoques.update', 'uses' =>'EstoquesController@update'])
+->middleware('autenticador');
+
+Route::put('/entradas/update/{id}', [ 'as' => 'entradas.update', 'uses' =>'EntradasController@update'])
+->middleware('autenticador');
+
+Route::put('/saidas/update/{id}', [ 'as' => 'saidas.update', 'uses' =>'SaidasController@update'])
 ->middleware('autenticador');
 
 Route::get('/produtos/{id}/edit', 'ProdutosController@edit')
@@ -93,6 +122,14 @@ Route::get('/estoques/{id}/edit', 'EstoquesController@edit')
                                     ->middleware('autenticador')
                                     ->name('editar_estoque');
 
+Route::get('/entradas/{id}/edit', 'EntradasController@edit')
+                                    ->middleware('autenticador')
+                                    ->name('editar_entradas');
+
+Route::get('/saidas/{id}/edit', 'SaidasController@edit')
+                                    ->middleware('autenticador')
+                                    ->name('editar_saidas');
+
 Route::delete('/categorias/remover/{id}', 'CategoriasController@destroy')
                                                     ->middleware('autenticador');
 
@@ -111,6 +148,12 @@ Route::delete('fornecedores/remover/{id}', 'FornecedorController@destroy')
 Route::delete('/estoques/remover/{id}', 'EstoquesController@destroy')
                                                 ->middleware('autenticador');
 
+Route::delete('/entradas/remover/{id}', 'EntradasController@destroy')
+                                                ->middleware('autenticador');
+
+Route::delete('/saidas/remover/{id}', 'SaidasController@destroy')
+                                                ->middleware('autenticador');
+
 Route::get('/categorias/{id}', 'CategoriasController@show');
 
 Route::get('/produtos/{id}', 'ProdutosController@show')
@@ -125,6 +168,12 @@ Route::get('/fornecedores/{id}', 'FornecedorController@show')
 
 Route::get('/estoques/{id}', 'EstoquesController@show')
                             ->name('visualizar_estoque');
+
+Route::get('/entradas/{id}', 'EntradasController@show')
+                            ->name('visualizar_entradas');
+
+Route::get('/saidas/{id}', 'SaidasController@show')
+                            ->name('visualizar_saidas');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

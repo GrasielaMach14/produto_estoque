@@ -30,21 +30,22 @@ Estoque
             </div>
         </div>
     </div>
-    <br><br><br>
+    <br><br>
 
     <div class="card">
         <div class="card-body">
+            <a href="#" class="btn btn-info mb-2 float-right">Lista de saídas</a>
+            <a href="/entradas" class="btn btn-info mb-2 float-right mr-2">Lista de entradas</a>
             @auth
-            <a href="#" class="btn btn-success mb-2 float-right">Registrar saída</a>
-            <a href="estoques/criar" class="btn btn-success mb-2 float-right mr-2">Registrar entrada</a>
+            <a href="estoques/criar" class="btn btn-success mb-2 float-right mr-2">Registrar movimentação</a>
             @endauth
             <table class="table table-hover">
                 <thead class="thead-light">
                     <tr class="header">
                         <th>Produto</th>
-                        <th>Valor real do produto</th>
-                        <th>Tipo</th>
-                        <th>Quantidade total</th>
+                        <th>Valor do produto</th>
+                        <th>Entrada</th>
+                        <th>Saída</th>
                         <th>Ação</th>
                     </tr>
                 </thead>
@@ -53,10 +54,11 @@ Estoque
                     <tr>
                         <td>{{ $estoque->produtos->nome }}</td>
                         <td>R$ {{ $estoque->produtos->preco }}</td>
-                        <td>
+                        <td>{{ $estoque->entrada->quantidade }}</td>
+                      <!--  <td>
                             {{ $estoque->tipo_movimentacao === 1 ? "Entrada" : "Saída" }}
-                        </td>
-                        <td>{{ $estoque->quantidade }}</td>
+                        </td> -->
+                        <td>{{ $estoque->saida->quantidade }}</td>
                         <td>
                             <span class="d-flex">
                                 <a class="btn btn-info btn-sm mr-1" href="/estoques/{{ $estoque->id }}">
@@ -87,8 +89,7 @@ Estoque
         
             <div style="float:right;">
                 {!! $estoques->links() !!}
-            </div> 
-          
+            </div>           
         </div>
     </div>
 

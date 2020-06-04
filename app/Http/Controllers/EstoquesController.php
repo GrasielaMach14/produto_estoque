@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Estoque;
 use App\Produto;
-use App\Fornecedor;
-use App\Funcionario;
+use App\Entrada;
+use App\Saida;
 use Illuminate\Http\Request;
 
 class EstoquesController extends Controller
@@ -35,10 +35,10 @@ class EstoquesController extends Controller
     public function create()
     {
         $produtos = Produto::all();
-        $fornecedores = Fornecedor::all();
-        $funcionarios = Funcionario::all();
+        $entradas = Entrada::all();
+        $saidas = Saida::all();
 
-        return view('estoques.create', compact('produtos', 'fornecedores', 'funcionarios'));
+        return view('estoques.create', compact('produtos', 'saidas', 'entradas'));
     }
 
     public function store(Request $request)
@@ -57,22 +57,19 @@ class EstoquesController extends Controller
     {
         $estoques = Estoque::find($id);
         $produtos = Produto::all();
-        $fornecedores = Fornecedor::all();
-        $funcionarios = Funcionario::all();
+        $entradas = Entrada::all();
+        $saidas = Saida::all();
 
-        return view('estoques.create', compact('produtos', 'fornecedores', 'funcionarios'));
+        return view('estoques.edit', compact('estoques', 'produtos', 'saidas', 'entradas'));
     }
 
     public function update(Request $request, int $id)
     {
         $estoques = Estoque::find($id);
         $estoques = $estoques->update([
-            'tipo_movimentacao' => request('tipo_movimentacao'), 
             'produto_id' => request('produto_id'), 
-            'fornecedor_id' => request('fornecedor_id'),
-            'funcionario_id' => request('funcionario_id'),
-            'quantidade' => request('quantidade'), 
-            'valor_total' => request('valor_total')
+            'entrada_id' => request('entrada_id'),
+            'saida_id' => request('saida_id')
              ]);
 
             $request->session()

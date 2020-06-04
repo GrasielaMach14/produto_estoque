@@ -1,18 +1,19 @@
 @extends('layout')
 
 @section('cabecalho')
-Fornecedores
+Entrada de Estoque
 @endsection
 
 @section('sidebar')
 <ul>
     <li></li>
-    <li><a href="#"> </a></li>
+    <li><a href="#">    </a></li>
     <li> <a href="/categorias">Categorias</a></li>
     <li> <a href="/produtos">Produtos</a></li>
     <li><a href="/estoques">Estoque</a></li>
     <li><a href="/setores">Setor</a></li>
     <li><a href="/funcionarios">Funcionário</a></li>
+    <li><a href="/fornecedores">Fornecedores</a></li>
 </ul>
 @endsection
 
@@ -22,7 +23,6 @@ Fornecedores
         {{ $mensagem }}
     </div>
 @endif
-
     <div class="wrapper" >
         <div class="search-box">
             <input type="text" class="input" id="myInput" onkeyup="searchFunc()" placeholder="Filtrar buscas por nome...">
@@ -37,37 +37,41 @@ Fornecedores
     <div class="card">
         <div class="card-body">
             @auth
-            <a href="fornecedores/criar" class="btn btn-info mb-2 float-right">Incluir</a>
+            <a href="entradas/criar" class="btn btn-info mb-2 float-right">Registrar entrada</a>
             @endauth
             <table class="table table-hover">
                 <thead class="thead-light">
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">CNPJ</th>
-                        <th scope="col">Ação</th>
+                    <tr class="header">
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Feito por</th>
+                        <th>Quantidade</th>
+                        <th>Ação</th>
                     </tr>
                 </thead>
-                @foreach($fornecedores as $fornecedor)            
+                @foreach($entradas as $entrada) 
                 <tbody id="myTable">
                     <tr>
-                        <td>{{ $fornecedor->id }}</td>
-                        <td>{{ $fornecedor->nome }}</td>
-                        <td>{{ $fornecedor->cnpj }}</td>
+                        <td>{{ $entrada->id }}</td>
+                        <td>{{ $entrada->produtos->nome }}</td>
+                        <td>R$ {{ $entrada->produtos->preco }}</td>
+                        <td>{{ $entrada->funcionarios->nome }}</td>
+                        <td>{{ $entrada->quantidade }}</td>
                         <td>
                             <span class="d-flex">
-                                <a class="btn btn-success btn-sm mr-1" href="/fornecedores/{{ $fornecedor->id }}">
-                                <i class="fas fa-search-plus"></i>
+                                <a class="btn btn-success btn-sm mr-1" href="/entradas/{{ $entrada->id }}">
+                                    <i class="fas fa-search-plus"></i>
                                 </a>
                                 @auth
-                                <a href="/fornecedores/{{ $fornecedor->id }}/edit" class="btn btn-info btn-sm mr-1">                    
+                                <a href="/entradas/{{ $entrada->id }}/edit" class="btn btn-info btn-sm mr-1">                    
                                     @csrf
                                     @method('PUT')
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 @endauth
                                 @auth
-                                <form method="post" action="/fornecedores/remover/{{ $fornecedor->id}}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes( $fornecedor->nome )}}?')">
+                                <form method="post" action="/entradas/remover/{{ $entrada->id}}" onsubmit="return confirm('Tem certeza que deseja remover {{ addslashes( $entrada->nome )}}?')">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger btn-sm">
@@ -79,12 +83,12 @@ Fornecedores
                         </td>
                     </tr>
                     @endforeach        
-                </tbody>
+                </tbody>           
             </table>
-            
+              
             <div style="float:right;">
-                {!! $fornecedores->links() !!}
-            </div>              
+                {!! $entradas->links() !!}
+            </div>    
         </div>
     </div>
 

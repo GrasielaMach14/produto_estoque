@@ -26,7 +26,7 @@
             <li><a class="caret" style="color:#818181;">Estoque<span>+</span></a>
                 <ul class="nested">
                     <li><a href="/estoques">Movimentação</a></li>
-                    <li><a href="#">Entrada de produtos</a></li>
+                    <li><a href="/entradas">Entrada de produtos</a></li>
                     <li><a href="#">Saída de produtos</a></li>
                 </ul>
             </li>

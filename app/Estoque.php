@@ -3,28 +3,28 @@
 namespace App;
 
 use App\Produto;
-use App\Fornecedor;
-use App\Funcionario;
+use App\Entrada;
+use App\Saida;
 use Illuminate\Database\Eloquent\Model;
 
 class Estoque extends Model
 {
     public $timestamps = true;
-    protected $fillable = ['produto_id', 'fornecedor_id', 'funcionario_id', 'tipo_movimentacao', 'quantidade', 'valor_total'];
+    protected $fillable = ['produto_id', 'entrada_id', 'saida_id'];
 
     public function produtos()
     {
         return $this->belongsTo(Produto::class, 'produto_id');
     }
 
-    public function fornecedores()
+    public function entrada()
     {
-        return $this->belongsTo(Fornecedor::class, 'fornecedor_id');
+        return $this->belongsTo(Entrada::class, 'entrada_id');
     }
 
-    public function funcionarios()
+    public function saida()
     {
-        return $this->belongsTo(Funcionario::class, 'funcionario_id');
+        return $this->belongsTo(Saida::class, 'saida_id');
     }
 
 }

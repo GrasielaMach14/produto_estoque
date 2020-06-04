@@ -96,6 +96,7 @@ class ProdutosController extends Controller
 
         return view('listar_produtos')->with('produtos ' , $produtos );
     }
+
     public function destroy(Request $request)
     {
         Produto::destroy($request->id);

@@ -22,8 +22,8 @@
         @endguest
     </nav>
     <div class="jumbotron fachada-yield">
-        <div class="jumbotron div-center" style="background-color:#0c0d0f96;width:63%;">
-            <h1 style="font-size:80px;">@yield('cabecalho')</h1>    
+        <div class="jumbotron div-center">
+            <h1>@yield('cabecalho')</h1>    
         </div>
     </div>
     <div id="sidebar"> @yield('sidebar')</div>
@@ -42,7 +42,7 @@
             });
         });
     </script>
-    <br><br><br><br><br><br><br><br>
+    
     
     <footer></footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>

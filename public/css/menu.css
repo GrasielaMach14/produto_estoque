@@ -98,9 +98,13 @@ body{
   height: 100%;
 }
 .div-center {
-  display: flex;
-  align-items: center; /*centraliza horizontalmente*/
-  justify-content: center; /*cetraliza verticalmente*/
+  margin: auto;
+  background-color: #0c0d0f96;
+  width: 70%;
+  padding: 30px;
+}
+.div-center h1{
+  font-size: 80px;
 }
 #sidebar {
   width:18%;
@@ -125,7 +129,7 @@ body{
 }
 .wrapper{
   position: absolute;
-  top: 76%;
+  top: 59%;
   right: -35%;
   transform: translate(-50%, -50%);
 }
