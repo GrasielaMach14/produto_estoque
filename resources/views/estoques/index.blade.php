@@ -34,7 +34,7 @@ Estoque
 
     <div class="card">
         <div class="card-body">
-            <a href="#" class="btn btn-info mb-2 float-right">Lista de saídas</a>
+            <a href="/saidas" class="btn btn-info mb-2 float-right">Lista de saídas</a>
             <a href="/entradas" class="btn btn-info mb-2 float-right mr-2">Lista de entradas</a>
             @auth
             <a href="estoques/criar" class="btn btn-success mb-2 float-right mr-2">Registrar movimentação</a>
@@ -43,9 +43,10 @@ Estoque
                 <thead class="thead-light">
                     <tr class="header">
                         <th>Produto</th>
-                        <th>Valor do produto</th>
-                        <th>Entrada</th>
-                        <th>Saída</th>
+                        <th>Valor(R$)</th>
+                        <th>Entrada /unid.</th>
+                        <th>Saída /unid.</th>
+                        <th>Saldo total /unid.</th>
                         <th>Ação</th>
                     </tr>
                 </thead>
@@ -59,6 +60,7 @@ Estoque
                             {{ $estoque->tipo_movimentacao === 1 ? "Entrada" : "Saída" }}
                         </td> -->
                         <td>{{ $estoque->saida->quantidade }}</td>
+                        <td>{{ $estoque->entrada->quantidade - $estoque->saida->quantidade }}</td>
                         <td>
                             <span class="d-flex">
                                 <a class="btn btn-info btn-sm mr-1" href="/estoques/{{ $estoque->id }}">

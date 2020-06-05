@@ -20,4 +20,9 @@ class Saida extends Model
     {
         return $this->belongsTo(Funcionario::class, 'funcionario_id');
     }
+
+    /*public static function subtotal(Saida $saidas) : float
+    {
+        return $saidas->valor * $saidas->quantidade;
+    }*/
 }

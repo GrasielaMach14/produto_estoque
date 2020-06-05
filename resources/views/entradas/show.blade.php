@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('cabecalho')
-Movimentação da entrada
+Movimentação da Entrada
 @endsection
 
 @section('conteudo')
@@ -17,8 +17,7 @@ Movimentação da entrada
     <h3>Quantidade: {{ $entradas->quantidade }} unidades</h3> 
     <h3>Feito por: {{ $funcionarios->nome }}</h3> 
     <br>
-    <h5>Criado em: {{$entradas->created_at}}</h5>
-    <h5>Modificado em: {{$entradas->updated_at}}</h5>
+    <h6>Modificado em: {{$entradas->updated_at}}</h6>
 </div>
 
 @endsection

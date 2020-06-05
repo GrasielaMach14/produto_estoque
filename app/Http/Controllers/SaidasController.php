@@ -21,7 +21,7 @@ class SaidasController extends Controller
 
         $saidas = Saida::paginate(4);
 
-        return view('entradas.view', compact('entradas', 'mensagem'));
+        return view('saidas.index', compact('saidas', 'mensagem'));
     }
 
     public function show($id)
@@ -58,7 +58,7 @@ class SaidasController extends Controller
         $produtos = Produto::all();
         $funcionarios = Funcionario::all();
 
-        return view('saidas.edit', compact('produtos', 'funcionarios'));
+        return view('saidas.edit', compact('saidas', 'produtos', 'funcionarios'));
     }
 
     public function update(Request $request, int $id)

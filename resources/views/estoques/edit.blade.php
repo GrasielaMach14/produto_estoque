@@ -36,7 +36,6 @@ Atualizar Movimentação
                                 <option value="{{ $p->id }}">{{ $p->nome }}</option>
                                 @endforeach                    
                             </option>
-                            @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md-6">
@@ -44,10 +43,9 @@ Atualizar Movimentação
                         <select name="entrada_id" id="entrada_id" class="form-control custom-select"> 
                         <option value="{{ $estoques->entrada->id ?? '' }}">{{ $estoques->entrada->nome ?? 'Entrada'}}
                                 @foreach($entradas as $entra)
-                                <option value="{{ $entra->id }}">{{ $entra->nome }}</option>
+                                <option value="{{ $entra->id }}">{{ $entra->produtos->nome }}</option>
                                 @endforeach                    
                            </option>
-                            @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md-6">
@@ -55,10 +53,9 @@ Atualizar Movimentação
                         <select name="saida_id" id="saida_id" class="form-control custom-select"> 
                         <option value="{{ $estoques->saida->id ?? '' }}">{{ $estoques->saida->nome ?? 'Saida'}}
                                 @foreach($saidas as $sai)
-                                <option value="{{ $sai->id }}">{{ $sai->nome }}</option>
+                                <option value="{{ $sai->id }}">{{ $sai->produtos->nome }}</option>
                                 @endforeach                    
                            </option>
-                            @endforeach
                         </select>
                     </div>
                 </div>
