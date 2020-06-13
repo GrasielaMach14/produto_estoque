@@ -9,6 +9,7 @@ Registrar Entrada
     <li></li>
     <li><a href="#">    </a></li>
     <li><a href="/entradas">Tela principal</a></li>
+    <li><a href="/estoques">Estoque</a></li>
 </ul>
 @endsection
 
@@ -49,7 +50,7 @@ Registrar Entrada
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-8">
-                        <label for="funcionario_id">Feito por:</label>
+                        <label for="funcionario_id">Responsável:</label>
                         <select name="funcionario_id" id="funcionario_id" class="form-control custom-select"> 
                             <option>Selecione...</option>
                             @foreach($funcionarios as $func)

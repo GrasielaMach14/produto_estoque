@@ -68,10 +68,10 @@
             </nav>-->
         </a>
         @auth
-        <a href="/sair" style="color:white;">Sair</a>
+        <a href="/sair" style="color:white;"><i class="fas fa-sign-out-alt"></i></a>
         @endauth
         @guest
-        <a href="/entrar" style="color:white;">Entrar</a>
+        <a href="/entrar" style="color:white;"><i class="fas fa-sign-in-alt"></i></a>
         @endguest
     </nav>
     <div class="jumbotron fachada">

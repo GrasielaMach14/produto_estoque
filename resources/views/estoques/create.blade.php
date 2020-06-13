@@ -44,17 +44,8 @@ Registrar Movimentação
                     </div>
                 </div>-->
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="produto_id">Produto:</label>
-                        <select name="produto_id" id="produto_id" class="form-control custom-select"> 
-                            <option>Selecione...</option>
-                            @foreach($produtos as $p)
-                            <option value="{{ $p->id }}">{{ $p->nome }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="entrada_id">Movimentação entrada do produto (por nome):</label>
+                    <div class="form-group col-md-8">
+                        <label for="entrada_id">Selecione registro da entrada pelo produto:</label>
                         <select name="entrada_id" id="entrada_id" class="form-control custom-select"> 
                             <option>Selecione...</option>
                             @foreach($entradas as $entra)
@@ -62,15 +53,15 @@ Registrar Movimentação
                             @endforeach
                         </select>
                     </div>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="saida_id">Movimentação saída de produto (por nome):</label>
-                    <select name="saida_id" id="saida_id" class="form-control custom-select"> 
-                        <option>Selecione...</option>
-                        @foreach($saidas as $sai)
-                        <option value="{{ $sai->id }}">{{ $sai->produtos->nome }}</option>
-                        @endforeach
-                    </select>
+                    <div class="form-group col-md-8">
+                        <label for="saida_id">Selecione registro da saida pelo produto:</label>
+                        <select name="saida_id" id="saida_id" class="form-control custom-select"> 
+                            <option>Selecione...</option>
+                            @foreach($saidas as $sai)
+                            <option value="{{ $sai->id }}">{{ $sai->produtos->nome }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <button class="btn btn-primary mt-3 float-right" style="width:130px;">Adicionar</button>
                 <a href="JavaScript: window.history.back();" class="btn btn-primary mt-3 float-right mr-2" style="width:130px;">Voltar</a>

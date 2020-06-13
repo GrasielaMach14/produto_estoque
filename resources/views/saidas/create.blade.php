@@ -1,14 +1,14 @@
 @extends('layout')
 
 @section('cabecalho')
-Registras Saídas
+Registrar Saída
 @endsection
 
 @section('sidebar')
 <ul>
     <li></li>
     <li><a href="#">    </a></li>
-    <li><a href="/saidas">Tela principal</a></li>
+    <li><a href="../estoques">Tela principal</a></li>
 </ul>
 @endsection
 
@@ -29,7 +29,7 @@ Registras Saídas
             @csrf
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="funcionario_id">Feito por:</label>
+                        <label for="funcionario_id">Responsável:</label>
                         <select name="funcionario_id" id="funcionario_id" class="form-control custom-select"> 
                             <option>Selecione...</option>
                             @foreach($funcionarios as $func)

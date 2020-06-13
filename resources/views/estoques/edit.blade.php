@@ -29,17 +29,7 @@ Atualizar Movimentação
                 @csrf
                 <div class="form-row mt-4">
                     <div class="form-group col-md-6">
-                        <label for="produto_id">Produto:</label>
-                        <select name="produto_id" id="produto_id" class="form-control custom-select"> 
-                            <option value="{{ $estoques->produtos->id ?? '' }}">{{ $estoques->produtos->nome ?? 'Produto'}}
-                                @foreach($produtos as $p)
-                                <option value="{{ $p->id }}">{{ $p->nome }}</option>
-                                @endforeach                    
-                            </option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="entrada_id">Movimentação entrada de produto::</label>
+                        <label for="entrada_id">Altere registro da entrada pelo produto:</label>
                         <select name="entrada_id" id="entrada_id" class="form-control custom-select"> 
                         <option value="{{ $estoques->entrada->id ?? '' }}">{{ $estoques->entrada->nome ?? 'Entrada'}}
                                 @foreach($entradas as $entra)
@@ -49,7 +39,7 @@ Atualizar Movimentação
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="saida_id">Movimentação saída de produto::</label>
+                        <label for="saida_id">Altere registro da saída pelo produto:</label>
                         <select name="saida_id" id="saida_id" class="form-control custom-select"> 
                         <option value="{{ $estoques->saida->id ?? '' }}">{{ $estoques->saida->nome ?? 'Saida'}}
                                 @foreach($saidas as $sai)

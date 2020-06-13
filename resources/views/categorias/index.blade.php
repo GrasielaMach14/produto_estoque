@@ -33,7 +33,7 @@ Categorias
     </div>
     <br><br>
     <div class="card">
-        <div class="card-body">
+        <div class="card-body table-responsive">
             @auth
             <a href="categorias/criar" class="btn btn-info mb-2 float-right">Incluir</a>
             @endauth

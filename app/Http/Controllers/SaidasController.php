@@ -41,13 +41,23 @@ class SaidasController extends Controller
 
     public function store(Request $request)
     {
-        $saidas = Saida::create($request->all());
+        if($request->quantidade > 0)
+        {
+            $saidas = Saida::create($request->all());
+            $request->session()
+            ->flash(
+                'mensagem', 
+                "Saida da movimentação de ID({$saidas->id}) criada com sucesso."
+            );
+        }else{
+            $request->session()
+            ->flash(
+                'mensagem', 
+                "Não tem este produto no estoque."
+            );
+        }
+            
 
-        $request->session()
-        ->flash(
-            'mensagem', 
-            "Saida da movimentação de ID({$saidas->id}) criada com sucesso."
-        );
 
         return redirect()->route('listar_saidas');
     }

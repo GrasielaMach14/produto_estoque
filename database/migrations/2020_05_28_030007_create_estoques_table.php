@@ -15,14 +15,9 @@ class CreateEstoquesTable extends Migration
     {
         Schema::create('estoques', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('produto_id');
             $table->bigInteger('entrada_id');
             $table->bigInteger('saida_id');
-
-            $table->foreign('produto_id')
-                    ->references('id')
-                    ->on('produtos');
-            
+ 
             $table->foreign('entrada_id')
                         ->references('id')
                         ->on('entradas');

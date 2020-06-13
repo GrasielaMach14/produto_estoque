@@ -51,7 +51,7 @@ class EntradasController extends Controller
             "Entrada da movimentação de ID({$entradas->id}) criada com sucesso."
         );
 
-        return redirect()->route('listar_entradas');
+        return redirect()->route('listar_estoques');
     }
 
     public function edit(int $id)
@@ -81,7 +81,7 @@ class EntradasController extends Controller
                 "Entrada da movimentação alterada com sucesso."
             );
             
-        return redirect()->route('listar_entradas');
+        return redirect()->route('listar_estoques');
     }
 
     public function destroy(Request $request)

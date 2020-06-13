@@ -10,12 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Estoque extends Model
 {
     public $timestamps = true;
-    protected $fillable = ['produto_id', 'entrada_id', 'saida_id'];
-
-    public function produtos()
-    {
-        return $this->belongsTo(Produto::class, 'produto_id');
-    }
+    protected $fillable = ['entrada_id', 'saida_id'];
 
     public function entrada()
     {

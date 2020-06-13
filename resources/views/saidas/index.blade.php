@@ -35,7 +35,7 @@ Saída de Estoque
     <br><br>
 
     <div class="card">
-        <div class="card-body">
+        <div class="card-body table-responsive">
             @auth
             <a href="saidas/criar" class="btn btn-info mb-2 float-right">Registrar saída</a>
             @endauth
@@ -44,10 +44,10 @@ Saída de Estoque
                     <tr class="header">
                         <th>Id</th>
                         <th>Produto</th>
-                        <th>Valor bruto(R$)</th>
+<!--                    <th>Valor bruto(R$)</th> -->
                         <th>Valor(R$)</th>
                         <th>Quantidade</th>
-                        <th>Feito por:</th>
+<!--                        <th>Feito por:</th> -->
                         <th>Data de saída</th>
                         <th>Subtotal(R$):</th>
                         <th>Ação</th> 
@@ -58,10 +58,10 @@ Saída de Estoque
                     <tr>
                         <td>{{ $saida->id }}</td>
                         <td>{{ $saida->produtos->nome }}</td>
-                        <td>R$ {{ $saida->produtos->preco }}</td>
+        <!--            <td>R$ {{ $saida->produtos->preco }}</td> -->
                         <td>R$ {{ $saida->valor }}</td>
                         <td>{{ $saida->quantidade }}</td>
-                        <td>{{ $saida->funcionarios->nome }}</td>
+           <!--             <td>{{ $saida->funcionarios->nome }}</td> -->
                         <td>{{ $saida->data_saida }}</td>
                         <td>                            
                             R$ {{ $saida->valor * $saida->quantidade }}

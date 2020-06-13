@@ -7,6 +7,8 @@ use App\Produto;
 use App\Entrada;
 use App\Saida;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Yajra\Datatables\Datatables;
 
 class EstoquesController extends Controller
 {
@@ -16,6 +18,12 @@ class EstoquesController extends Controller
                     ->orderBy('id')
                     ->get();
 
+        // $estoques = DB::table('estoques')
+        //             ->join('entradas', 'estoques.id', '=', 'entradas.produto_id')
+        //             ->join('saidas', 'estoques.id', '=', 'saidas.produto_id')
+        //             ->select('estoques.*')
+        //             ->get();
+    
         $mensagem = $request
                     ->session()
                     ->get('mensagem');

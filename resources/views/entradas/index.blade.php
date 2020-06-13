@@ -35,7 +35,7 @@ Entrada de Estoque
     <br><br>
 
     <div class="card">
-        <div class="card-body">
+        <div class="card-body table-responsive">
             @auth
             <a href="entradas/criar" class="btn btn-info mb-2 float-right">Registrar entrada</a>
             @endauth
@@ -45,7 +45,7 @@ Entrada de Estoque
                         <th>Id</th>
                         <th>Nome</th>
                         <th>Preço</th>
-                        <th>Feito por</th>
+                        <th>Data de entrada</th>
                         <th>Quantidade</th>
                         <th>Subtotal(R$):</th>
                         <th>Ação</th> 
@@ -57,7 +57,7 @@ Entrada de Estoque
                         <td>{{ $entrada->id }}</td>
                         <td>{{ $entrada->produtos->nome }}</td>
                         <td>R$ {{ $entrada->produtos->preco }}</td>
-                        <td>{{ $entrada->funcionarios->nome }}</td>
+                        <td>{{ $entrada->data_entrada }}</td>
                         <td>{{ $entrada->quantidade }}</td>
                         <td>                            
                             R$ {{ $entrada->produtos->preco * $entrada->quantidade }}
