@@ -14,6 +14,11 @@
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>   
     <link rel="stylesheet" href="/css/menu.css">
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+    </script>
 </head>
 <body style="background-color:#0c0d0f26;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
@@ -47,12 +52,8 @@
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css"></script>
 
-     <script>
-        //Datatable paginate
-        $(document).ready( function () {<font></font>
-            $('#myTable').DataTable();<font></font>
-        } );<font></font>
-
+     {{-- <script>
+       
         //Carrega campo busca por elemento na tabela
         $(document).ready(function(){
         $("#myInput").on("keyup", function() {
@@ -62,7 +63,7 @@
                 });
             });
         });
-    </script>
+    </script> --}}
     
 </body>
 </html>

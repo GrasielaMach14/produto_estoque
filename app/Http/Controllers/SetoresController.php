@@ -17,7 +17,7 @@ class SetoresController extends Controller
                 ->session()
                 ->get('mensagem');
 
-        $setores = Setor::paginate(3);
+        // $setores = Setor::paginate(3);
 
         return view('setores.index', compact('setores', 'mensagem'));
     }

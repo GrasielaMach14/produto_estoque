@@ -121,17 +121,29 @@
             <h3 style="color:#3E403A;">Organize seus ativos</h3>
             <h6>Saiba mais como utilizar clicando no ícone abaixo</h6>
             <div class="row mt-5">
-                <div class="col-sm">
-                    <div class="card border border-light rounded cards">
-                        <a href="/setores">
-                            <img class="img-thumbnail" src="/img/listasetor.png" alt="Imagem de capa do card">
-                        </a>
-                        <div class="card-body">
-                            <a href="/setores" class="btn btn-dark">Veja mais</a>
+                <div class="col-md-6">
+                    <div class="card flex-md-row mb-4 box-shadow h-md-250" style="height:92%;">
+                        <div class="card-body d-flex flex-column align-items-start">
+                        <strong class="d-inline-block mb-2 text-primary">World</strong>
+                        <h3 class="mb-0">
+                            <a class="text-dark" href="#">Featured post</a>
+                        </h3>
+                        <div class="mb-1 text-muted">Nov 12</div>
+                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#">Continue reading</a>
+                        </div>  
+                    </div>   
+                </div>         
+                <div class="col-md-6">
+                    <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                        <div class="card-body d-flex flex-column align-items-start" style="width: 280px;">
+                            <a href="/produtos">
+                                <img class="img-thumbnail" src="/img/listaprodutos.png" alt="Imagem de capa do card">
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm">
+                {{-- <div class="col-md-6">
                     <div class="card border border-light rounded cards">
                         <a href="/setores">
                             <img class="img-thumbnail" src="/img/listasetor.png" alt="Imagem de capa do card">
@@ -160,37 +172,37 @@
                             <a href="/categorias" class="btn btn-dark">Veja mais</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </section>
         <hr>
         <section>
-        <div class="row mt-5">   
+            <div class="row mt-5">   
                 <div class="col-md-6">
                     <div class="card flex-md-row mb-4 box-shadow h-md-250">
                         <div class="card-body d-flex flex-column align-items-start" style="width: 280px;">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                <img class="d-block w-100" src="../img/archive-1850170__340.webp" alt="First slide">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                    <img class="d-block w-100" src="../img/archive-1850170__340.webp" alt="First slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                    <img class="d-block w-100" src="../img/workplace-1245776__340.webp" alt="Second slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                    <img class="d-block w-100" src="../img/tie-690084_960_720.webp" alt="Third slide">
+                                    </div>                                
+                                    <div class="carousel-item">
+                                    <img class="d-block w-100" src="../img/office-1209640_960_720.jpeg" alt="Fourth slide">
+                                    </div>
                                 </div>
-                                <div class="carousel-item">
-                                <img class="d-block w-100" src="../img/workplace-1245776__340.webp" alt="Second slide">
-                                </div>
-                                <div class="carousel-item">
-                                <img class="d-block w-100" src="../img/tie-690084_960_720.webp" alt="Third slide">
-                                </div>                                
-                                <div class="carousel-item">
-                                <img class="d-block w-100" src="../img/office-1209640_960_720.jpeg" alt="Fourth slide">
-                                </div>
-                            </div>
-                        </div>  
+                            </div>  
                         </div>  
                     </div>   
                 </div>         

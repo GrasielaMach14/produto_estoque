@@ -22,7 +22,7 @@ Produtos
         {{ $mensagem }}
     </div>
 @endif
-    <div class="wrapper" >
+    {{-- <div class="wrapper" >
         <div class="search-box">
             <input type="text" class="input" id="myInput" onkeyup="searchFunc()" placeholder="Filtrar buscas por nome...">
             <div class="searchbtn">
@@ -31,14 +31,14 @@ Produtos
         </div>
     </div>
 
-    <br><br>
+    <br><br> --}}
 
     <div class="card">
         <div class="card-body table-responsive">
             @auth
-            <a href="produtos/criar" class="btn btn-info mb-2 float-right">Incluir</a>
-            @endauth
-            <table class="table table-hover">
+            <a href="produtos/criar" class="btn btn-info mb-4">Incluir</a>
+            @endauth <br>
+            <table class="table table-hover" id="myTable">
                 <thead class="thead-light">
                     <tr class="header">
                         <th>Id</th>
@@ -50,7 +50,7 @@ Produtos
                     </tr>
                 </thead>
                 @foreach($produtos as $produto) 
-                <tbody id="myTable">
+                <tbody>
                     <tr>
                         <td>{{ $produto->id }}</td>
                         <td>{{ $produto->nome }}</td>
@@ -85,9 +85,9 @@ Produtos
                 </tbody>           
             </table>
               
-            <div style="float:right;">
+            {{-- <div style="float:right;">
                 {!! $produtos->links() !!}
-            </div>    
+            </div>     --}}
         </div>
     </div>
 

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Estoque;
 use App\Produto;
 use App\Entrada;
 use App\Saida;
+use App\Fornecedor;
+use App\Funcionario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\Datatables\Datatables;
@@ -14,7 +15,7 @@ class EstoquesController extends Controller
 {
     public function index(Request $request)
     {
-        $estoques = Estoque::query()
+        $estoques = Entrada::query()
                     ->orderBy('id')
                     ->get();
 
@@ -28,77 +29,132 @@ class EstoquesController extends Controller
                     ->session()
                     ->get('mensagem');
                         
-        $estoques = Estoque::paginate(4);
+        // $estoques = Estoque::paginate(4);
 
         return view('estoques.index', compact('estoques', 'mensagem'));                    
     }
 
-    public function show($id)
-    {
-        $estoques = Estoque::find($id);
+    // public function show($id)
+    // {
+    //     $estoques = Estoque::find($id);
 
-        return view('estoques.show', compact('estoques'));
-    }
+    //     return view('estoques.show', compact('estoques'));
+    // }
 
-    public function create()
+    public function createntrada()
     {
         $produtos = Produto::all();
-        $entradas = Entrada::all();
-        $saidas = Saida::all();
+        $fornecedores = Fornecedor::all();
+        $funcionarios = Funcionario::all();
 
-        return view('estoques.create', compact('produtos', 'saidas', 'entradas'));
+        return view('estoques.createntrada', 
+                    compact('produtos', 'fornecedores', 'funcionarios'));
     }
 
-    public function store(Request $request)
-    {
-        $estoques = Estoque::create($request->all());
-        
+    public function addentrada()
+    {      
+        $request = Request();
+
+        $produto_id = $request->input('id');
+
+        $produto = Produto::find($produto_id);
+
+        // if(empty($produto->id)) 
+        // {
+        //     $request->session()
+        //         ->flash(
+        //             'mensagem', 'Produto não encontrado.'
+        //         );
+
+        //     return redirect()->route('listar_estoques');
+        // }
+
+        Entrada::create($request->all());
+
         $request->session()
                     ->flash(
-                    'mensagem', 'Movimentação do estoque criado com sucesso.'
+                    'mensagem', 'Entrada de produto criada com sucesso.'
                 );
                 
         return redirect()->route('listar_estoques');
     }
 
-    public function edit(int $id)
+    public function createsaida()
     {
-        $estoques = Estoque::find($id);
         $produtos = Produto::all();
-        $entradas = Entrada::all();
-        $saidas = Saida::all();
+        $funcionarios = Funcionario::all();
 
-        return view('estoques.edit', compact('estoques', 'produtos', 'saidas', 'entradas'));
+        return view('estoques.createsaida', compact('produtos', 'funcionarios'));
     }
 
-    public function update(Request $request, int $id)
-    {
-        $estoques = Estoque::find($id);
-        $estoques = $estoques->update([
-            'produto_id' => request('produto_id'), 
-            'entrada_id' => request('entrada_id'),
-            'saida_id' => request('saida_id')
-             ]);
+    public function addsaida()
+    {       
+        $request = Request();
 
-            $request->session()
-                ->flash(
-                'mensagem', 'Movimentação do estoque alterado com sucesso.'
-            );
+        $entrada_id = $request->input('id');
+
+        $entrada = Entrada::find($entrada_id);
         
-
-        return redirect()->route('listar_estoques');
-    }
-
-    public function destroy(Request $request)
-    {
-        Estoque::destroy($request->id);
+        Saida::create($request->all());
 
         $request->session()
-                    ->flash(
-                    'mensagem', 'Movimentação do estoque excluído com sucesso.'
+                ->flash(
+                    'mensagem', 'Saída de produto registrada com sucesso.'
                 );
         
-
         return redirect()->route('listar_estoques');
+
+        // if(!empty($entrada->id)) 
+        // {
+        // }else{
+        //     $request->session()
+        //             ->flash(
+        //                 'mensagem', 'Não há registro de entrada deste produto.'
+        //             );
+            
+        //     return redirect()->route('listar_estoques');
+        // }
+
     }
+
+    // public function edit(int $id)
+    // {
+    //     $estoques = Estoque::find($id);
+    //     $produtos = Produto::all();
+    //     $entradas = Entrada::all();
+    //     $saidas = Saida::all();
+
+    //     return view('estoques.edit', compact('estoques', 'produtos', 'saidas', 'entradas'));
+    // }
+
+    // public function update(Request $request, int $id)
+    // {
+    //     $estoques = Estoque::find($id);
+    //     $estoques = $estoques->update([
+    //         'produto_id' => request('produto_id'), 
+    //         'entrada_id' => request('entrada_id'),
+    //         'saida_id' => request('saida_id')
+    //          ]);
+
+    //         $request->session()
+    //             ->flash(
+    //             'mensagem', 'Movimentação do estoque alterado com sucesso.'
+    //         );
+        
+
+    //     return redirect()->route('listar_estoques');
+    // }
+
+    // public function destroy(Request $request)
+    // {
+    //     Estoque::destroy($request->id);
+
+    //     $request->session()
+    //                 ->flash(
+    //                 'mensagem', 'Movimentação do estoque excluído com sucesso.'
+    //             );
+        
+
+    //     return redirect()->route('listar_estoques');
+    // }
 }

@@ -22,7 +22,7 @@ Setor
         {{ $mensagem }}
     </div>
 @endif
-
+{{-- 
 <div class="wrapper mb-2 " >
     <div class="search-box">
         <input type="text" class="input" id="myInput" onkeyup="searchFunc()" placeholder="Filtrar buscas por nome...">
@@ -32,14 +32,15 @@ Setor
     </div>
 </div>
 
-<br><br>
+<br><br> --}}
 
     <div class="card">
         <div class="card-body table-responsive">
             @auth
-            <a href="setores/criar" class="btn btn-info mb-2 float-right">Incluir</a>
+            <a href="setores/criar" class="btn btn-info mb-4">Incluir</a>
             @endauth
-            <table class="table table-hover">
+            
+            <table class="table table-hover"  id="myTable">
                 <thead class="thead-light">
                     <tr>
                         <th>Id</th>
@@ -48,7 +49,7 @@ Setor
                     </tr>
                 </thead>
                 @foreach($setores as $setor)
-                <tbody id="myTable">
+                <tbody>
                     <tr>
                         <td>{{ $setor->id }}</td>
                         <td>{{ $setor->nome }}</td>
@@ -79,9 +80,9 @@ Setor
                 </tbody>
                 @endforeach
             </table>
-            <div style="float:right;">
+            {{-- <div style="float:right;">
                 {!! $setores->links() !!}
-            </div>           
+            </div>            --}}
         </div>
     </div>
 @endsection

@@ -14,7 +14,7 @@ Estoque
     <li><a href="/funcionarios">Funcionário</a></li>
     <li><a href="/fornecedores">Fornecedores</a></li>
 </ul>
-<div id="sidebar2"></div>
+{{-- <div id="sidebar2"></div> --}}
 @endsection
 
 @section('conteudo')
@@ -23,7 +23,7 @@ Estoque
         {{ $mensagem }}
     </div>
 @endif
-    <div class="wrapper" >
+    {{-- <div class="wrapper" >
         <div class="search-box">
             <input type="text" class="input" id="myInput" onkeyup="searchFunc()" placeholder="Filtrar buscas por nome...">
             <div class="searchbtn">
@@ -31,14 +31,11 @@ Estoque
             </div>
         </div>
     </div>
-    <br><br>
-    <div class="card">
+    <br><br> --}}
+
+    {{-- <div class="card">
         <div class="card-body table-responsive"> 
-            @auth
-            <a href="/estoques/criar" class="btn btn-info mb-2 float-right">Registrar movimentação</a>
-            @endauth 
             <table class="table table-hover" id="myTable">
-                <h3>Estoque</h3>
                 <thead class="thead-light">
                     <tr class="header">
                         <th>Data</th>
@@ -50,11 +47,11 @@ Estoque
                     </tr>
                 </thead>
                 @foreach($estoques as $estoque) 
-                <tbody id="myTable">
+                <tbody>
                     <tr>
-                        <td>{{ $estoque->created_at }}</td>
+                        <td>{{ $estoque->created_at->format('d/m/Y H:i') }}</td>
                         <td>{{ $estoque->entrada->produtos->nome }}</td>
-                        <td>R$ {{ $estoque->entrada->produtos->preco }}</td>
+                        <td>R${{ number_format($estoque->entrada->produtos->preco, 2, ',', '.') }}</td>
                         <td>{{ $estoque->entrada->quantidade }}</td>
                         <!--  <td>
                             {{ $estoque->tipo_movimentacao === 1 ? "Entrada" : "Saída" }}
@@ -67,15 +64,18 @@ Estoque
             </table>        
         </div>
     </div>          
-    <br>
+    <br> --}}
 
     <div class="card">
         <div class="card-body table-responsive">
+             @auth
+            <a href="/estoques/criarentrada" class="btn btn-info mb-4">Registrar entrada</a>
+            @endauth 
             @auth
-            <a href="../entradas" class="btn btn-info mb-2 float-right">Lista de entradas</a>
-            @endauth
+            <a href="/estoques/criarsaida" class="btn btn-info mb-4">Registrar saída</a>
+            @endauth 
             <table class="table table-hover" id="myTable">
-                <h3>Entrada do estoque</h3>
+                <h2 class="mb-4">Entrada do estoque</h2>
                 <thead class="thead-light">
                     <tr class="header">
                         <th>Data</th>
@@ -86,13 +86,13 @@ Estoque
                     </tr>
                 </thead>
                 @foreach($estoques as $estoque) 
-                <tbody id="myTable">
+                <tbody>
                     <tr>
-                        <td>{{ $estoque->entrada->data_entrada }}</td>
-                        <td>{{ $estoque->entrada->produtos->nome }}</td>
-                        <td>{{ $estoque->entrada->quantidade }}</td>
-                        <td>R$ {{ $estoque->entrada->produtos->preco }}</td>
-                        <td>R$ {{ $estoque->entrada->quantidade * $estoque->entrada->produtos->preco }}</td>
+                        <td>{{ $estoque->data_entrada }}</td>
+                        <td>{{ $estoque->produtos->nome }}</td>
+                        <td>{{ $estoque->quantidade }}</td>
+                        <td>R$ {{ $estoque->produtos->preco }}</td>
+                        <td>R$ {{ $estoque->quantidade * $estoque->produtos->preco }}</td>
                       </tr>
                     @endforeach        
                 </tbody>
@@ -101,7 +101,7 @@ Estoque
     </div> 
     <br>
 
-    <div class="card">
+    {{-- <div class="card">
         <div class="card-body table-responsive">
             @auth
             <a href="../saidas" class="btn btn-info mb-2 float-right">Lista de saidas</a>
@@ -131,6 +131,6 @@ Estoque
             </table>                  
         </div>
     </div>          
-    <br>
+    <br> --}}
 
 @endsection

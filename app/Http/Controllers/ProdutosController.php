@@ -19,7 +19,7 @@ class ProdutosController extends Controller
                     ->session()
                     ->get('mensagem');
 
-        $produtos = Produto::paginate(4);
+        // $produtos = Produto::paginate(4);
 
         return view('produtos.index', compact('produtos', 'mensagem'));
     }
